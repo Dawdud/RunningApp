@@ -2,7 +2,7 @@
 import Login from './components/Login.vue';
 import signUp from './components/SignUp.vue';
 import Hello from './components/user/Hello.vue';
-import RuningTrials from './components/user/RunningTrials.vue';
+import RuningTrials from './components/Trials/RunningTrials.vue';
 import Details from './components/user/Details.vue';
 import Router from 'vue-router';
 import firebase from 'firebase';
@@ -28,8 +28,14 @@ component:signUp },
 path: '/hello', 
 component:Hello,
 children:[
-    {path: 'trials', component: RuningTrials },
-    {path: 'details', component: Details  }
+    {path: 'trials', 
+    component: RuningTrials, 
+    
+},
+    {
+    path: 'details', 
+    component: Details 
+ }
 
 ],
 meta: {

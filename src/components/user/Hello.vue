@@ -12,15 +12,15 @@
             
            </div>
             <div class="row ">
-                <div class="col-lg-2 h-100 ">
-                    <navbar class="sidebar">
+                <div class="col-lg-2 h-100 sidebar">
+                    <nav>
                    <ul>
                        <router-link tag="li" to="/hello/trials"> Trials</router-link>
                        <router-link tag="li" to="/hello/details"> details</router-link>
                    </ul>
-                    </navbar>
+                    </nav>
                 </div>
-                <div class="col-lg-10 h-100 ">
+                <div class="col-lg-9 h-100 ">
                   <router-view></router-view>
                 </div>
 
