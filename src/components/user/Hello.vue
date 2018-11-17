@@ -17,6 +17,7 @@
                    <ul>
                        <router-link tag="li" to="/hello/trials"> Trials</router-link>
                        <router-link tag="li" to="/hello/details"> details</router-link>
+                       <router-link tag="li" to="/hello/calendar"> calendar</router-link>
                       
                    </ul>
                     </nav>

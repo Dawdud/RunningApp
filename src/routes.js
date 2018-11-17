@@ -3,7 +3,7 @@ import Login from './components/Login.vue';
 import signUp from './components/SignUp.vue';
 import Hello from './components/user/Hello.vue';
 import RuningTrials from './components/Trials/RunningTrials.vue';
-
+import calendarTrials from './components/Trials/calendarTrials.vue';
 import Details from './components/user/Details.vue';
 import Router from 'vue-router';
 import firebase from 'firebase';
@@ -37,6 +37,10 @@ children:[
     path: 'details', 
     component: Details 
  }, 
+ {
+     path:'calendar',
+     component: calendarTrials
+ }
 
 ],
 meta: {
