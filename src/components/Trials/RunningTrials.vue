@@ -22,7 +22,8 @@
      </div>
      <div class="row">
          <div class="col-lg-12">
-              <app-selected></app-selected>
+             
+            
          </div>
      </div>
  </div>
@@ -32,23 +33,28 @@
 
 <script>
     import axios from 'axios';
-    import Selected from './SelectedTrials.vue';
+    
+    import firebase from 'firebase';
+    import {eventBus} from '../../main.js'
+    
     export default {
         name: 'hello',
         data(){
             
             return {
-                
+                userId:'',
                 trial: {
                     distance:'',
                     date: new Date().toISOString().slice(0,10),
                     time:'',
-                    city:''
+                    city:'', 
+                    
 
                 }
                          
             }
         },
+          
       
         methods: {
             
@@ -58,16 +64,19 @@
                    date: this.trial.date,
                    time: this.trial.time,
                    city: this.trial.city,
+                   userId: this.userId
             };
-               axios.post('https://jogging-e3b56.firebaseio.com/user/trials.json',trialDetails)
-               .then(res => console.log(res))
+               axios.post('https://jogging-e3b56.firebaseio.com/user/'+ eventBus.getUser().uid +'/trials.json',trialDetails)
+               .then(res => {this.$router.push('/')})
                .catch(error => console.log(error))
                
-           }
-          
+           },
+       
         },
+           
+        
         components: {
-            'appSelected': Selected
+            
         }
     }
-</script>
+</script>onsole.log(res)

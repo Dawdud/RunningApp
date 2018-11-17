@@ -15,7 +15,18 @@ let config = {
 
 
 
-
+export const eventBus= new Vue(
+  {
+    
+    methods: {
+      getUser(){
+      
+        var userId = firebase.auth().currentUser;
+        return userId
+    }
+   },
+  }
+);
 
 firebase.initializeApp(config);
 
