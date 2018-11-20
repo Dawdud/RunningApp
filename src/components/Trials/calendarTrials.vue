@@ -9,7 +9,7 @@
         </div>
     <div class="col col-center">
             <span>
-            {{crtmont}}   
+            {{month}}   
             </span> 
     </div>
     <div class="col col-end" @click="nextMonth()">
@@ -21,9 +21,29 @@
     </div>
     
     </div>
-    <div> days</div>
-    <div> cells</div>
+    <div class="days row"> 
+        <div class="col col-center"v-for="item in weekDays">
+          
+            {{item}}
+
+          
+
+        </div>
+  
+  
+      
     </div>
+       
+       <ul class="dates">
+            <li v-for="blank in firstDayOfMonth">&nbsp;</li>
+            <li v-for="date in daysInMonth" 
+        		:class="{'current-day': date == initialDate && month == initialMonth && year == initialYear}">
+            {{date}}
+                <span></span>
+            </li>
+        </ul>
+    </div>
+   
 </template>
 
 
@@ -32,30 +52,75 @@ import moment from 'moment';
 export default {
         
         name: 'hello',
-        VARX: 0,
+        
         data(){
             return {
-                moment:moment(),
-                currentMonth: moment(),
-                crtmont:moment().format('MMM-YYYY')
+                moment: moment(),
+                today: moment(),
+              
+                weekDays: ['pn','wt','śr','cz','pt','so','nd'],
+                
+
                
             }
         },
         methods: {
             nextMonth: function(){
-               this.currentMonth= moment(this.currentMonth).add(1,'M');
-               this.crtmont= moment(this.currentMonth).format('MMMM-YYYY');
+             var t=this;
+             t.moment= moment(t.moment).add(1,'month');
 
             },
             prevMonth: function(){
-                this.currentMonth= moment(this.currentMonth).subtract(1, 'months');
-                this.crtmont= moment(this.currentMonth).format('MMM-YYYY');
+                var t= this;
+                t.moment= moment(t.moment).subtract(1,'month');
                  
             },
             dateClick: function(){
 
             }
+        },
+        computed: {
+          year: function()
+          {
+            var t= this;
+            return t.moment.format('Y');
+          },
+          month: function(){
+            var t= this;
+            return t.moment.format('MMMM');
+          },
+          daysInMonth: function(){
+            var t = this;
+            return t.moment.daysInMonth();
+          },
+          currentDate: function(){
+            var t= this;
+            return t.moment.get('date')
+
+          },
+          firstDayOfMonth: function(){
+            var t= this;
+            var firstDay= moment(t.moment).subtract((t.currentDate-1),'days');
+            return firstDay.weekday();
+          },
+          initialDate: function()
+          {
+            var t= this; 
+            return t.today.get('date');
+          },
+          initialMonth: function(){
+            var t= this; 
+            return  t.today.format('MMMM');
+          },
+          initialYear: function()
+          {
+            var t= this; 
+            return t.today.format('Y');
+          }
+
+
         }
+
     }
 
     
@@ -64,7 +129,8 @@ export default {
 
 
 
-<style>
+ <style lang="scss">
+  
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 
@@ -85,7 +151,15 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'liga';
 }
-
+.dates{
+   list-style-type: none;
+    display: inline-block;
+    width: 13.6%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size:12px;
+    color: #777;
+}
 
 /* VARIABLES */
 
@@ -101,452 +175,43 @@ export default {
 
 /* GENERAL */
 
-* {
-  box-sizing: border-box;
-}
 
-body {
-    font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-    font-size: 1em;
-    font-weight: 300;
-    line-height: 1.5;
-    color: var(--text-color);
-    background: var(--bg-color);
-    position: relative;
-}
 
-header {
-  display: block;
-  width: 100%;
-  padding: 1.75em 0;
-  border-bottom: 1px solid var(--border-color);
-  background: var(--neutral-color);
-}
-
-header #logo {
-  font-size: 175%;
-  text-align: center;
-  color: var(--main-color);
-  line-height: 1;
-}
-
-header #logo .icon {
-  padding-right: .25em;
-}
-
-main {
-  display: block;
-  margin: 0 auto;
-  margin-top: 5em;
-  max-width: 50em;
-}
-
-
-/* GRID */
-
-.row {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.row-middle {
-  align-items: center;
-}
-
-.col {
-  flex-grow: 1;
-  flex-basis: 0;
-  max-width: 100%;
-}
-
-.col-start {
-  justify-content: flex-start;
-  text-align: left;
-}
-
-.col-center {
-  justify-content: center;
-  text-align: center;
-}
-
-.col-end {
-  justify-content: flex-end;
-  text-align: right;
-}
-
-
-/* Calendar */
-
-.calendar {
-  display: block;
-  position: relative;
-  width: 100%;
-  background: var(--neutral-color);
-  border: 1px solid var(--border-color);
-}
-
-.calendar .header {
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 115%;
-  padding: 1.5em 0;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.calendar .header .icon {
-  cursor: pointer;
-  transition: .15s ease-out;
-}
-
-.calendar .header .icon:hover {
-  transform: scale(1.75);
-  transition: .25s ease-out;
-  color: var(--main-color);
-}
-
-.calendar .header .icon:first-of-type {
-  margin-left: 1em;
-}
-
-.calendar .header .icon:last-of-type {
-  margin-right: 1em;
-}
-
-.calendar .days {
-  text-transform: uppercase;
-  font-weight: 400;
-  color: var(--text-color-light);
-  font-size: 70%;
-  padding: .75em 0;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.calendar .body .cell {
-  position: relative;
-  height: 5em;
-  border-right: 1px solid var(--border-color);
-  overflow: hidden;
-  cursor: pointer;
-  background: var(--neutral-color);
-  transition: 0.25s ease-out;
-}
-
-.calendar .body .cell:hover {
-  background: var(--bg-color);
-  transition: 0.5s ease-out;
-}
-
-.calendar .body .selected {
-  border-left: 10px solid transparent;
-  border-image: linear-gradient(45deg, #1a8fff 0%,#53cbf1 40%);
-  border-image-slice: 1;
-}
-
-.calendar .body .row {
-  border-bottom: 1px solid var(--border-color);
-}
-
-.calendar .body .row:last-child {
-  border-bottom: none;
-}
-
-.calendar .body .cell:last-child {
-  border-right: none;
-}
-
-.calendar .body .cell .number {
-  position: absolute;
-  font-size: 82.5%;
-  line-height: 1;
-  top: .75em;
-  right: .75em;
-  font-weight: 700;
-}
-
-.calendar .body .disabled {
-  color: var(--text-color-light);
-  pointer-events: none;
-}
-
-.calendar .body .cell .bg {
-  font-weight: 700;
-  line-height: 1;
-  color: var(--main-color);
-  opacity: 0;
-  font-size: 8em;
-  position: absolute;
-  top: -.2em;
-  right: -.05em;
-  transition: .25s ease-out;
-  letter-spacing: -.07em;
-}
-
-.calendar .body .cell:hover .bg, .calendar .body .selected .bg  {
-  opacity: 0.05;
-  transition: .5s ease-in;
-}
-
-.calendar .body .col {
-  flex-grow: 0;
-  flex-basis: calc(100%/7);
-  width: calc(100%/7);
-}
-
-
-</style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<style lang="scss">
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
-@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
-
-.icon {
-  font-family: 'Material Icons', serif;
-  font-style: normal;
-  display: inline-block;
-  vertical-align: middle;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: 'liga';
-}
-
-
-/* VARIABLES */
-
-:root {
-  --main-color: #1a8fff;
-  --text-color: #777;
-  --text-color-light: #ccc;
-  --border-color: #eee;
-  --bg-color: #f9f9f9;
-  --neutral-color: #fff;
-}
-
-
-/* GENERAL */
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-    font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-    font-size: 1em;
-    font-weight: 300;
-    line-height: 1.5;
-    color: var(--text-color);
-    background: var(--bg-color);
-    position: relative;
-}
-
-header {
-  display: block;
-  width: 100%;
-  padding: 1.75em 0;
-  border-bottom: 1px solid var(--border-color);
-  background: var(--neutral-color);
-}
-
-header #logo {
-  font-size: 175%;
-  text-align: center;
-  color: var(--main-color);
-  line-height: 1;
-}
-
-header #logo .icon {
-  padding-right: .25em;
-}
-
-main {
-  display: block;
-  margin: 0 auto;
-  margin-top: 5em;
-  max-width: 50em;
-}
-
-
-/* GRID */
-
-.row {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.row-middle {
-  align-items: center;
-}
-
-.col {
-  flex-grow: 1;
-  flex-basis: 0;
-  max-width: 100%;
-}
-
-.col-start {
-  justify-content: flex-start;
-  text-align: left;
-}
-
-.col-center {
-  justify-content: center;
-  text-align: center;
-}
-
-.col-end {
-  justify-content: flex-end;
-  text-align: right;
-}
-
-
-/* Calendar */
-
-.calendar {
-  display: block;
-  position: relative;
-  width: 100%;
-  background: var(--neutral-color);
-  border: 1px solid var(--border-color);
-}
-
-.calendar .header {
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 115%;
-  padding: 1.5em 0;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.calendar .header .icon {
-  cursor: pointer;
-  transition: .15s ease-out;
-}
-
-.calendar .header .icon:hover {
-  transform: scale(1.75);
-  transition: .25s ease-out;
-  color: var(--main-color);
-}
-
-.calendar .header .icon:first-of-type {
-  margin-left: 1em;
-}
-
-.calendar .header .icon:last-of-type {
-  margin-right: 1em;
-}
-
-.calendar .days {
-  text-transform: uppercase;
-  font-weight: 400;
-  color: var(--text-color-light);
-  font-size: 70%;
-  padding: .75em 0;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.calendar .body .cell {
-  position: relative;
-  height: 5em;
-  border-right: 1px solid var(--border-color);
-  overflow: hidden;
-  cursor: pointer;
-  background: var(--neutral-color);
-  transition: 0.25s ease-out;
-}
-
-.calendar .body .cell:hover {
-  background: var(--bg-color);
-  transition: 0.5s ease-out;
-}
-
-.calendar .body .selected {
-  border-left: 10px solid transparent;
-  border-image: linear-gradient(45deg, #1a8fff 0%,#53cbf1 40%);
-  border-image-slice: 1;
-}
-
-.calendar .body .row {
-  border-bottom: 1px solid var(--border-color);
-}
-
-.calendar .body .row:last-child {
-  border-bottom: none;
-}
-
-.calendar .body .cell:last-child {
-  border-right: none;
-}
-
-.calendar .body .cell .number {
-  position: absolute;
-  font-size: 82.5%;
-  line-height: 1;
-  top: .75em;
-  right: .75em;
-  font-weight: 700;
-}
-
-.calendar .body .disabled {
-  color: var(--text-color-light);
-  pointer-events: none;
-}
-
-.calendar .body .cell .bg {
-  font-weight: 700;
-  line-height: 1;
-  color: var(--main-color);
-  opacity: 0;
-  font-size: 8em;
-  position: absolute;
-  top: -.2em;
-  right: -.05em;
-  transition: .25s ease-out;
-  letter-spacing: -.07em;
-}
-
-.calendar .body .cell:hover .bg, .calendar .body .selected .bg  {
-  opacity: 0.05;
-  transition: .5s ease-in;
-}
-
-.calendar .body .col {
-  flex-grow: 0;
-  flex-basis: calc(100%/7);
-  width: calc(100%/7);
-}
+.dates{
+    padding: 10px 0;
+    background: #eee;
+    width: 70vw;
+    margin: 0;
+    li{
+      list-style-type: none;
+    display: inline-block;
+    width: 12.6%;
+    text-align: center;
+    margin-bottom: 45px;
     
+    
+    color: #777;
+
+    }
+
+}
+
 </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
