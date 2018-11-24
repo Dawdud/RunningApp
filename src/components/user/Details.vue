@@ -1,8 +1,17 @@
 <template>
  
      <div class="row">
+        
+        
          <div class="col-lg-10">
-             <hr>
+               <div>
+                        <select>
+            <option value="Listopad">Listopas</option>
+            
+            </select>
+         </div>
+
+             
              <div class="table">
                  <table class="table">
   <thead class="thead-dark">

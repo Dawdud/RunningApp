@@ -8,14 +8,14 @@
          <input type="time" id="trial-time"  class="form-control" v-model="trial.time" step="2" />
          <label for="trial-date">Date:</label>
          <input type="date" id="trial-date" class="form-control" v-model="trial.date"/>
-         <label for="trial-distance">Distance in km: </label>
+         <label for="trial-distance">Distance in meters: </label>
          <input type="number" id="trial-distance"  class="form-control" v-model.number="trial.distance"/>
          <label for="trial-city">City</label>
          <input type="text" id="trial-city" class="form-control" v-model="trial.city">
 
 
          </div>
-         <button  @click="onSubmit" class="btn btn-primary"> Add trial</button>
+         <button  @click="trialsSubmit" class="btn btn-primary"> Add trial</button>
         </form> 
          </div>        
         
@@ -58,7 +58,7 @@
       
         methods: {
             
-           onSubmit (){
+           trialsSubmit(){
                const trialDetails={
                    distance: this.trial.distance,
                    date: this.trial.date,
@@ -66,9 +66,8 @@
                    city: this.trial.city,
                    userId: this.userId
             };
-               axios.post('https://jogging-e3b56.firebaseio.com/user/'+ eventBus.getUser().uid +'/trials.json',trialDetails)
-               .then(res => {this.$router.push('/')})
-               .catch(error => console.log(error))
+               
+               eventBus.OnSubmit(trialDetails, 'trials')
                
            },
        

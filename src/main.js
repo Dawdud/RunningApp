@@ -3,6 +3,9 @@ import App from './App.vue'
 import VueRouter from 'vue-router';
 import router from './routes'; 
 import firebase from 'firebase';
+import axios from 'axios';
+    
+
 let app;
 let config = {
   apiKey: "AIzaSyADoJhTDAdYoSU3GoUanBkx1GD4B0UQeds",
@@ -16,6 +19,7 @@ let config = {
 
 
 export const eventBus= new Vue(
+  
   {
     
     methods: {
@@ -23,6 +27,12 @@ export const eventBus= new Vue(
       
         var userId = firebase.auth().currentUser;
         return userId
+    }, 
+    OnSubmit(dataObject, typeObject){
+      axios.post('https://jogging-e3b56.firebaseio.com/user/'+ this.getUser().uid +`/${typeObject}.json`,dataObject)
+               .then(res => {this.$router.push('/')})
+               .catch(error => console.log(error))
+
     }
    },
   }
