@@ -33,7 +33,8 @@ export const eventBus= new Vue(
                .then(res => {this.$router.push('/')})
                .catch(error => console.log(error))
 
-    }
+    },
+    
    },
   }
 );

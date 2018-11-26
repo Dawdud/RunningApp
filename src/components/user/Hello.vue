@@ -15,8 +15,8 @@
                 <div class="col-lg-2 h-100 sidebar">
                     <nav>
                    <ul>
-                       <router-link tag="li" to="/hello/trials"> Trials</router-link>
-                       <router-link tag="li" to="/hello/details"> details</router-link>
+                        <router-link tag="li" to="/hello/dashboard"> Dashboard</router-link>
+                       <router-link tag="li" to="/hello/details"> Track details</router-link>
                        <router-link tag="li" to="/hello/goals"> goals</router-link>
                       <router-link tag="li" to="/hello/stats"> stats</router-link>
                        

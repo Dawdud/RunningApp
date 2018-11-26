@@ -1,15 +1,13 @@
 <template>
- 
+
+
      <div class="row">
-        
+        <div class="col-lg-6">
+            <app-running-trials></app-running-trials>
+        </div>
         
          <div class="col-lg-10">
-               <div>
-                        <select>
-            <option value="Listopad">Listopas</option>
-            
-            </select>
-         </div>
+              
 
              
              <div class="table">
@@ -21,6 +19,7 @@
       <th scope="col">Date</th>
       <th scope="col">Distance</th>
       <th scope="col">city</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -49,23 +48,23 @@
 <script>
 import axios from 'axios';
 import {eventBus} from '../../main.js';
-
+import RunningTrial from '../Trials/RunningTrials';
 export default {
        
         data(){
             return {
+             showForm:false,
              trialData:{},
             
             }
         },
-        methods: {
-           
-        },
+       
+
         created(){
             
             axios.get('https://jogging-e3b56.firebaseio.com/user/'+eventBus.getUser().uid+'/trials.json')
             .then(res=> {
-                console.log(res)
+                
                 const data= res.data
                 const users= []
                 for(let key in data){
@@ -75,7 +74,7 @@ export default {
 
                 }
                 this.trialData= users;
-                console.log(this.trialData);
+               
                 
                 
 
@@ -83,6 +82,13 @@ export default {
 
             .catch(error=>console.log(error))
 
+        },
+         methods: {
+           
+        },
+        components:
+        {
+            'app-running-trials': RunningTrial,
         }
     }
 </script>

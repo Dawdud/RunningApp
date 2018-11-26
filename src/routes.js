@@ -1,11 +1,11 @@
 
-import Login from './components/Login.vue';
-import signUp from './components/SignUp.vue';
+import Login from './components/user/Login.vue';
+import signUp from './components/user/SignUp.vue';
 import Hello from './components/user/Hello.vue';
-import RuningTrials from './components/Trials/RunningTrials.vue';
 import Goals from './components/Trials/Goals.vue';
 import Stats from './components/Trials/stats.vue';
-import Details from './components/user/Details.vue';
+import Details from './components/Trials/TrialsDetails.vue';
+import DashBoard from './components/Trials/DashBoard.vue';
 import Router from 'vue-router';
 import firebase from 'firebase';
 import Vue from 'vue';
@@ -30,8 +30,8 @@ component:signUp },
 path: '/hello', 
 component:Hello,
 children:[
-    {path: 'trials', 
-    component: RuningTrials, 
+    {path: 'dashboard', 
+    component: DashBoard, 
     
 },
     {

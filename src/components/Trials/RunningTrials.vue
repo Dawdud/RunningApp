@@ -1,8 +1,11 @@
 <template>
  <div class="container">
+     <button class="btn " @click="showForm = !showForm">Add new Trial</button>
      <div class="row">
-         <div class=" col-lg-10 d-flex justify-content-center align-self-center">
-         <form>
+          
+         <div class=" col-lg-10 d-flex justify-content-center align-self-center"  >
+            
+         <form  v-show="showForm">
              <div class="form-group ">
          <label for="trial-time">Time:</label>
          <input type="time" id="trial-time"  class="form-control" v-model="trial.time" step="2" />
@@ -20,12 +23,7 @@
          </div>        
         
      </div>
-     <div class="row">
-         <div class="col-lg-12">
-             
-            
-         </div>
-     </div>
+     
  </div>
 
 </template>
@@ -42,6 +40,7 @@
         data(){
             
             return {
+                showForm: false,
                 userId:'',
                 trial: {
                     distance:'',
@@ -78,4 +77,4 @@
             
         }
     }
-</script>onsole.log(res)
+</script>
