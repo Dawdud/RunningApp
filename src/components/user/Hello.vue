@@ -2,15 +2,7 @@
     
         
         <div class="container ">
-           <div class="row">
-            <header class="col-lg-12 d-flex align-items-center justify-content-around">
-                <div class="brand">
-                    
-                </div>               
-                <button v-on:click="logout">Logout</button>
-                </header>
-            
-           </div>
+          
             <div class="row ">
                 <div class="col-lg-2 h-100 sidebar">
                     <nav>
@@ -25,6 +17,7 @@
                     </nav>
                 </div>
                 <div class="col-lg-9 h-100 ">
+                    <app-header></app-header>
                   <router-view></router-view>
                 </div>
 
@@ -37,18 +30,19 @@
 
 <script>
     import firebase from 'firebase';
+    import header from './header.vue';
     export default {
         name: 'hello',
         data(){
             return {
-                msg: 'Welcomen to Your Vue.jS App'
+                
             }
         },
         methods: {
-            logout: function(){
-                firebase.auth().signOut().then(()=>
-                {this.$router.replace('login')})
-            }
+           
+        },
+        components: {
+            'app-header': header,
         }
     }
 </script>

@@ -7,7 +7,7 @@
             <form>
              <div class="form-group ">
              <label for="goal-date">Date:</label>
-             <input type="date" id="goal-date" class="form-control"  v-model="goal.date"/>
+             <input type="month" id="goal-date" class="form-control"  v-model="goal.date"/>
              <label for="goal-distance">Distance in km: </label>
              <input type="number" id="goal-distance"  class="form-control" v-model.number="goal.distance"/>
              </div>
@@ -40,7 +40,7 @@
                 showForm: false,
                 goal: {
                     distance:'',
-                    date: new Date().toISOString().slice(0,10),
+                    date:'',
                     
                     
 
