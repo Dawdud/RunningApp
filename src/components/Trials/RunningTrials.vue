@@ -2,9 +2,9 @@
  <div class="container">
      <button class="btn " @click="showForm = !showForm">Add new Trial</button>
      <div class="row">
-          
+
          <div class=" col-lg-10 d-flex justify-content-center align-self-center"  >
-            
+
          <form  v-show="showForm">
              <div class="form-group ">
          <label for="trial-time">Time:</label>
@@ -19,26 +19,26 @@
 
          </div>
          <button  @click="trialsSubmit" class="btn btn-primary"> Add trial</button>
-        </form> 
-         </div>        
-        
+        </form>
+         </div>
+
      </div>
-     
+
  </div>
 
 </template>
 
 
 <script>
-    import axios from 'axios';
-    
-    import firebase from 'firebase';
+
+
+
     import {eventBus} from '../../main.js'
-    
+
     export default {
         name: 'hello',
         data(){
-            
+
             return {
                 showForm: false,
                 userId:'',
@@ -46,17 +46,17 @@
                     distance:'',
                     date: new Date().toISOString().slice(0,10),
                     time:'',
-                    city:'', 
-                    
+                    city:'',
+
 
                 }
-                         
+
             }
         },
-          
-      
+
+
         methods: {
-            
+
            trialsSubmit(){
                const trialDetails={
                    distance: this.trial.distance,
@@ -65,16 +65,16 @@
                    city: this.trial.city,
                    userId: this.userId
             };
-               
+
                eventBus.OnSubmit(trialDetails, 'trials')
-               
+
            },
-       
+
         },
-           
-        
+
+
         components: {
-            
+
         }
     }
 </script>

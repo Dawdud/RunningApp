@@ -12,32 +12,32 @@ import Vue from 'vue';
 
 Vue.use(Router)
 
- let router=  new Router({ 
-    routes:  [  
-{ 
-    path:'/', 
+ let router=  new Router({
+    routes:  [
+{
+    path:'/',
     redirect: '/login'},
-{ 
-    path:'*', 
+{
+    path:'*',
     redirect: '/login'},
 
-{ path:'/login', 
-component: Login}, 
+{ path:'/login',
+component: Login},
 {
-path:'/sign-up', 
+path:'/sign-up',
 component:signUp },
 {
-path: '/hello', 
+path: '/hello',
 component:Hello,
 children:[
-    {path: 'dashboard', 
-    component: DashBoard, 
-    
+    {path: 'dashboard',
+    component: DashBoard,
+
 },
     {
-    path: 'details', 
-    component: Details 
- }, 
+    path: 'details',
+    component: Details
+ },
  {
      path: 'goals',
      component: Goals,
@@ -46,7 +46,7 @@ children:[
      path:'stats',
      component: Stats,
  }
- 
+
 
 ],
 meta: {

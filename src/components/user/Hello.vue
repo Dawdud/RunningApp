@@ -1,8 +1,8 @@
 <template>
-    
-        
+
+
         <div class="container ">
-          
+
             <div class="row ">
                 <div class="col-lg-2 h-100 sidebar">
                     <nav>
@@ -11,8 +11,8 @@
                        <router-link tag="li" to="/hello/details"> Track details</router-link>
                        <router-link tag="li" to="/hello/goals"> goals</router-link>
                       <router-link tag="li" to="/hello/stats"> stats</router-link>
-                       
-                      
+
+
                    </ul>
                     </nav>
                 </div>
@@ -23,23 +23,23 @@
 
             </div>
         </div>
-        
 
-    
+
+
 </template>
 
 <script>
-    import firebase from 'firebase';
+
     import header from './header.vue';
     export default {
         name: 'hello',
         data(){
             return {
-                
+
             }
         },
         methods: {
-           
+
         },
         components: {
             'app-header': header,
@@ -53,15 +53,15 @@
     margin: 0 auto;
     padding: 0;
     min-width:100vw;
-   
-    
+
+
 }
 header{
-   
+
     background-color: white;
     border-bottom:  0.009em solid $border-color;
     min-height: 5vh !important;
-    
+
 }
 .col-lg-2{
     background-color: $sidebar-color;

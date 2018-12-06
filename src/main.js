@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router';
-import router from './routes'; 
+import router from './routes';
 import firebase from 'firebase';
 import axios from 'axios';
-    
+
 
 let app;
 let config = {
@@ -19,22 +19,24 @@ let config = {
 
 
 export const eventBus= new Vue(
-  
+
   {
-    
+
     methods: {
       getUser(){
-      
+
         var userId = firebase.auth().currentUser;
         return userId
-    }, 
+    },
     OnSubmit(dataObject, typeObject){
       axios.post('https://jogging-e3b56.firebaseio.com/user/'+ this.getUser().uid +`/${typeObject}.json`,dataObject)
                .then(res => {this.$router.push('/')})
                .catch(error => console.log(error))
 
     },
-    
+
+
+
    },
   }
 );

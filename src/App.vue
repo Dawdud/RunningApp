@@ -6,7 +6,7 @@
         <router-view></router-view>
        </div>
      </div>
-      
+
     </div>
   </div>
 </template>
@@ -16,7 +16,7 @@
 
 export default {
   name: 'app',
- 
+
 }
 </script>
 
@@ -29,19 +29,19 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   $color: #2c3e50;
-  
- 
- 
-  
-  
+
+
+
+
+
 }
 html,body, #app{
   height: 100vh;
-   overflow-x: hidden; 
+   overflow-x: hidden;
     overflow-y: auto;
-  
-  
-  
+
+
+
 }
 
 
