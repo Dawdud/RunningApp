@@ -1,1 +1,13 @@
-@import "./partials/navbar.scss";
+@import 'base/base';
+@import 'base/typography';
+
+
+@import 'layout/content';
+@import 'layout/sidenav';
+
+@import 'pages/home';
+@import 'pages/dashboard';
+
+@import 'utils/functions';
+@import 'utils/mixins';
+@import 'utils/variables';

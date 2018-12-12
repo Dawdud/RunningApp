@@ -1,26 +1,32 @@
 <template>
-<div>
-    <div class="row">
-        <div class="col-lg-4">
-            <p>W tym miesiącu przebiegłeś </p>
-            <p>{{monthSum}} metrów</p>
-            <button @click="getTodayTrial()">get week</button>
+<div class="dashboard">
 
-        </div>
-        <div class="col-lg-4">
-            <p>Dzisiaj przebiegłeś</p>
-            <p>{{todaySum}}</p>
+            <div class="dashboard__stats">
+                <div class="dashboard__stats__month">
+                        <h3>W tym miesiącu przebiegłeś </h3>
+                         <h2>{{monthSum}} metrów</h2>
+                </div>
+            </div>
 
-        </div>
-        <div class="col-lg-4">
-            <p>Ogólny cel</p>
-            <ul v-for="(data) in  Goalsdata">
-                <li>{{data.distance}}</li>
-                <li>{{data.date}} </li>
-            </ul>
-        </div>
-    </div>
-</div>
+
+            <div class="dashboard__stats">
+                <div class="dashboard__stats__day">
+                        <h3>Dzisiaj przebiegłeś</h3>
+                        <h2>{{todaySum}}</h2>
+                </div>
+            </div>
+            <div class="dashboard__stats">
+                <div class="dashboard__stats__day">
+                    <h3>Ogólny cel</h3>
+                    <ul v-for="(data) in  Goalsdata">
+                        <li><h2>{{data.distance}}</h2></li>
+                        <li><h4>{{data.date}}</h4> </li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+
+
 
 </template>
 

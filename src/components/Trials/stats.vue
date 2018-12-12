@@ -1,7 +1,7 @@
 <template>
 <div class="container">
     <div class="row">
-        <div class="col">
+        <div class="col-lg-9">
         <canvas id="myChart"></canvas>
         </div>
     </div>
@@ -10,13 +10,26 @@
 </template>
 <script>
 import Chart from  'chart.js';
-
+import axios from 'axios';
 import {eventBus} from '../../main.js';
 export default {
 
         data(){
             return {
-                RunningChartData:{},
+                RunningChartData:{
+                    type:"bar",
+                    options:{
+                        responsive: true,
+                        lineTension:1,
+                        title:{
+                            display: true,
+                            text: 'Running Distance in meters',
+                            fontSize:20,
+                        }
+                    },
+
+
+                },
             }
         },
         methods: {
@@ -32,7 +45,8 @@ export default {
         },
         mounted()
         {
-            this.createChart('myChart', this.RunningChartData)
+
+
         },
         created()
         {
@@ -50,8 +64,17 @@ export default {
                    date.push(dateTrial);
 
                 }
-                this.RunningChartData.distance= distance;
-                this.RunningChartData.date= date;
+                this.RunningChartData.data= {
+                    labels: date,
+                    datasets:[{
+                        label:"distance",
+                        data: distance,
+                        backgroundColor: '#3C65F2',
+                    }],
+
+                };
+                this.createChart('myChart', this.RunningChartData)
+
 
 
 

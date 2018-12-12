@@ -1,28 +1,35 @@
 <template>
 
+<div class="content">
+            <aside class="aside">
 
-        <div class="container ">
 
-            <div class="row ">
-                <div class="col-lg-2 h-100 sidebar">
-                    <nav>
-                   <ul>
-                        <router-link tag="li" to="/hello/dashboard"> Dashboard</router-link>
-                       <router-link tag="li" to="/hello/details"> Track details</router-link>
-                       <router-link tag="li" to="/hello/goals"> goals</router-link>
-                      <router-link tag="li" to="/hello/stats"> stats</router-link>
+
+                <nav class="aside__nav" role="custom-dropdown">
+                    <span class="navbar-toggle" @click="toggleMenu= !toggleMenu" >
+                        <i class="fas fa-bars"></i>
+                    </span>
+
+                   <ul class="aside__nav__main" :class="{toggle:toggleMenu}" >
+                        <router-link tag="li" to="/hello/dashboard"> <span style="font-size: 1.1em; padding:.8rem"><i class="fas fa-tachometer-alt"></i></span> Dashboard</router-link>
+                       <router-link tag="li" to="/hello/details"><span style="font-size: 1.1em; padding:.8rem"><i class="fas fa-running"></i></span> Track details</router-link>
+                       <router-link tag="li" to="/hello/goals"><span style="font-size: 1.1em; padding:.8rem"> <i class="fas fa-trophy"></i> </span> goals</router-link>
+                      <router-link tag="li" to="/hello/stats"><span style="font-size: 1.1em; padding:.8rem"> <i class="fas fa-chart-bar"></i> </span>stats</router-link>
 
 
                    </ul>
                     </nav>
-                </div>
-                <div class="col-lg-9 h-100 ">
-                    <app-header></app-header>
+
+                </aside>
+                <main class="main">
+                <div class="main__content">
                   <router-view></router-view>
                 </div>
+                </main>
+</div>
 
-            </div>
-        </div>
+
+
 
 
 
@@ -35,7 +42,7 @@
         name: 'hello',
         data(){
             return {
-
+            toggleMenu:false
             }
         },
         methods: {
@@ -48,8 +55,8 @@
 </script>
 
 <style lang="scss" >
-@import "src/scss/modules/colors.scss";
-.container{
+
+/*.container{
     margin: 0 auto;
     padding: 0;
     min-width:100vw;
@@ -59,7 +66,7 @@
 header{
 
     background-color: white;
-    border-bottom:  0.009em solid $border-color;
+    border-bottom:  0.009em solid black;
     min-height: 5vh !important;
 
 }
@@ -70,5 +77,5 @@ header{
 
 .h-100{
     min-height: 100vh;
-}
+}*/
 </style>

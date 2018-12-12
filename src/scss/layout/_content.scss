@@ -1,0 +1,33 @@
+@import '../utils/mixins';
+.content
+{
+    display: flex;
+    flex-direction: column;
+    background-color: #E8E8E8;
+    min-height: 100vh;
+
+
+    @include  tablet{
+        background-color: blue ;
+    }
+    @include desktop{
+
+        flex-direction: row;
+
+    }
+
+}
+.main
+{
+    display: flex;
+    justify-content: center;
+    font-size:18px;
+
+  &__content
+  {
+
+
+
+
+  }
+}

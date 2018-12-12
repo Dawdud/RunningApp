@@ -1,0 +1,15 @@
+.dashboard
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1.2rem;
+    &__stats
+    {
+        padding: 2rem  0 5rem 0;
+        margin:1.2rem;
+        background: white;
+        min-height: 25rem;
+        border: 1px solid #D6D6D6;
+    }
+}
