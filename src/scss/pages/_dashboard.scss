@@ -1,3 +1,5 @@
+@import '../utils/mixins';
+@import '../utils/variables';
 .dashboard
 {
     display: flex;
@@ -6,10 +8,54 @@
     margin: 1.2rem;
     &__stats
     {
+
         padding: 2rem  0 5rem 0;
         margin:1.2rem;
         background: white;
         min-height: 25rem;
+        min-width: 80vw;
         border: 1px solid #D6D6D6;
+        ul{
+            list-style-type: none;
+        }
+        &__info{
+
+            text-align: center;
+            margin:2.7rem;
+            h3{
+                font-size: 2rem;
+                font-family: 'Encode Sans Semi Condensed', sans-serif;
+                font-weight: 300;
+            }
+            &:after{
+                content: "";
+                display: block;
+                margin: 0 auto;
+                width: 85%;
+                padding-top: 1.3rem;
+                border-bottom:  .1rem solid $border-color;
+            }
+
+
+        }
+        &__content{
+           padding: 2rem;
+            h2{
+                font-weight: 700;
+            }
+
+
+        }
     }
+    @include desktop{
+
+    flex-direction: row;
+    justify-content: center;
+
+    &__stats{
+
+    width: 30rem;
+    }
+    }
+
 }
