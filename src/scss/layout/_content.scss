@@ -1,37 +1,51 @@
 @import '../utils/mixins';
+@import '../utils/variables';
 .content
-{
-    display: flex;
-    flex-direction: column;
-    background-color: #E8E8E8;
-    min-height: 100vh;
-
-
-    @include  tablet{
-        background-color: blue ;
-    }
-    @include desktop{
-
-        flex-direction: row;
-
-
-
-
-
-
-    }
-
-}
-.main
 {
 
     margin: 0 auto;
-    font-size:18px;
+    background-color: $content-bg-color;
+    @include  tablet{
+       display: flex;
+     }
+
+}
+
+.main
+{
+
+    display: flex;
+
+    @include smartphone{
+
+        min-height: 100vh;
+
+        justify-content: center;
+        align-items: center;
+
+
+
+    }
+    @include  tablet{
+       min-width: 80vw;
+       align-items: flex-start;
+    }
+
+
+
 
   &__content
   {
 
 
+
+    @include smartphone{
+       justify-content: center;
+
+    }
+    @include tablet{
+        min-width: 80vw;
+    }
 
 
   }

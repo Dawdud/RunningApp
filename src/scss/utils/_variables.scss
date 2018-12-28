@@ -1,6 +1,20 @@
 
-//breakpoints
-$tablet-width: 768px;
-$desktop-width: 1023px;
-//colors
+/*====breakpoints====*/
+$tablet-width: 48em;
+$desktop-width: 62em;
+$smartphone-width: 20em;
+/*====colors====*/
+$white: white;
 $border-color: #D1D1D1;
+$content-bg-color:#E8E8E8;
+$nav-bg-color: #2E2D2B;
+$nav-border-color: #0D0C0C;
+$nav-toggle-color:rgba(250, 255, 255, 0.8);
+$stat-border-color: #D6D6D6;
+/*====fonts====*/
+$nav-font-primary: 1.6em "Raleway", sans-serif;
+$nav-font-tablet:   1.2em ;
+$nav-toogle-font:  2.5em  ;
+$third-font: 300 1.2em 'Encode Sans Semi Condensed', sans-serif;
+$content-header-font: 700  2em 'Mukta', sans-serif;;
+
