@@ -12,6 +12,8 @@
         padding: 2rem  0 5rem 0;
         margin:1.2rem;
         background-color: $white;
+        flex-grow: 1;
+
 
 
         border: 1px solid $stat-border-color;
@@ -49,39 +51,32 @@
         }
     }
     @include smartphone{
+        flex-grow: 1;
         &__stats{
-            width: 28em;
+            flex-grow: 2;
+            min-width: 26em;
 
         }
     }
     @include tablet{
         flex-direction: row;
         &__stats{
-
+            flex-grow: 1;
+            min-width: 16em;
         }
 
 
     }
+    @include desktop{
+        flex-direction: row;
+        &__stats{
+            width: 5em;
+        }
+
+    }
+
 
 
 
 }
 
-@include desktop{
-.dashboard{
-
-
-
-    flex-direction: row;
-
-
-
-    &__stats{
-
-
-
-
-
-    }
-}
-    }

@@ -6,15 +6,29 @@ $smartphone-width: 20em;
 /*====colors====*/
 $white: white;
 $border-color: #D1D1D1;
-$content-bg-color:#E8E8E8;
+$content-bg-color:rgba(209, 209, 209,0.3);
 $nav-bg-color: #2E2D2B;
 $nav-border-color: #0D0C0C;
 $nav-toggle-color:rgba(250, 255, 255, 0.8);
 $stat-border-color: #D6D6D6;
+$table-head-bg: #1b1e24;
+$table-head-font-color:  #D5DDE5;
+$table-row-border-primary: #C1C3D1;
+$table-row-border-secondary: #C1C3D1;
+$table-row-font-color: #646982;
+$table-row-hover: #4E5066;
+$table-row-hover-border: #22262e;
+$table-cell-border-primary:#9ea7af;
+$table-cell-border-secondary: #343a45;
+
+/*====shadows====*/
+$table-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+$table-font-shadow:  0 1px 1px rgba(0, 0, 0, 0.1);
+$table-row-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
 /*====fonts====*/
 $nav-font-primary: 1.6em "Raleway", sans-serif;
 $nav-font-tablet:   1.2em ;
 $nav-toogle-font:  2.5em  ;
 $third-font: 300 1.2em 'Encode Sans Semi Condensed', sans-serif;
 $content-header-font: 700  2em 'Mukta', sans-serif;;
-
+$tab-font-primary: 1.7em "Raleway", sans-serif;

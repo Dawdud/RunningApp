@@ -1,7 +1,7 @@
 <template>
 <div class="container">
-    <div class="row">
-        <div class="col-lg-9">
+    <div class="stats">
+        <div class="stats__chart">
         <canvas id="myChart"></canvas>
         </div>
     </div>

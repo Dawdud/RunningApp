@@ -1,46 +1,45 @@
 <template>
 
 
-     <div class="row">
+     <div class="runningdetails">
         <div class="col-lg-6">
             <app-running-trials></app-running-trials>
         </div>
 
-         <div class="col-lg-10">
 
 
 
-             <div class="table">
-                 <table class="table">
-  <thead class="thead-dark">
-    <tr>
+<div class="details">
+        <table class="details__table">
+            <thead class="details__table__head">
+                <tr>
 
-      <th scope="col">Time</th>
-      <th scope="col">Date</th>
-      <th scope="col">Distance</th>
-      <th scope="col">city</th>
+                <th class="details__table__head__cell">Time</th>
+                <th class="details__table__head__cell">Date</th>
+                <th class="details__table__head__cell">Distance</th>
+                <th class="details__table__head__cell">city</th>
 
-    </tr>
-  </thead>
-  <tbody>
-     <tr>
-      <th scope="row"></th>
-      <tr v-for="(data) in trialData">
-        <td >{{data.time}}</td>
-        <td> {{data.date}}</td>
-        <td> {{data.distance}}</td>
-        <td> {{data.city}}</td>
-
-    </tr>
+                </tr>
+            </thead>
+        <tbody class="details__table__body">
 
 
-  </tbody>
-</table>
+            <tr v-for="(data) in trialData" >
+                <td class="details__table__body__cell">{{data.time}}</td>
+                <td class="details__table__body__cell"> {{data.date}}</td>
+                <td class="details__table__body__cell"> {{data.distance}}</td>
+                <td class="details__table__body__cell"> {{data.city}}</td>
+
+            </tr>
+
+
+        </tbody>
+        </table>
 
 
 
              </div>
-         </div>
+
      </div>
 
 

@@ -21,7 +21,7 @@
         min-height: 100vh;
 
         justify-content: center;
-        align-items: center;
+        padding-top: 5em;
 
 
 
@@ -30,7 +30,9 @@
        min-width: 80vw;
        align-items: flex-start;
     }
-
+    @include desktop{
+        min-width: 85vw;
+    }
 
 
 

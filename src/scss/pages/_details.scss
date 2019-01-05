@@ -1,0 +1,152 @@
+@import '../utils/mixins';
+@import '../utils/variables';
+.runningdetails{
+
+    .details{
+
+        display: flex;
+        justify-content: center;
+
+        &__table{
+            background: $white;
+            border-radius: .6em;
+            border-collapse: collapse;
+            margin: auto;
+            box-shadow:$table-shadow;
+            animation: float 5s infinite;
+            &__head{
+                background: $table-head-bg;
+                color: $table-head-font-color;
+                &__cell{
+                    border-bottom: .3em solid   $table-cell-border-primary;
+                    border-right: .2em solid    $table-cell-border-secondary;
+                    color: $white;
+                    text-align: left;
+                    text-shadow: $table-font-shadow;
+                    vertical-align: middle;
+                    &:first-child{
+                        border-top-left-radius: .5em;
+                    }
+                    &:last-child{
+                        border-top-right-radius: .3em;
+                        border-right: none;
+                    }
+
+                }
+
+            }
+            &__body{
+                tr{
+                    border-top: .1em solid $table-row-border-primary;
+                    border-bottom: .1em solid  $table-row-border-secondary;
+                    color:$table-row-font-color;
+
+                    text-shadow: $table-row-shadow;
+                    &:hover{
+                        background: $table-row-hover;
+                        color:$white;
+                        border-top: .1em solid $table-row-hover-border;
+                    }
+                    &:first-child{
+                        border-top:none;
+                    }
+                    &:last-child{
+                        border-bottom: none;
+                        border-bottom-left-radius:.4em;
+                        border-bottom-right-radius:.4em;
+                    }
+
+
+                }
+            }
+        }
+
+
+
+    }
+    @include smartphone{
+        padding-top: 5em;
+        .details{
+        padding-top: 3em;
+        &__table{
+
+
+            min-height:80vh;
+            min-width: 90vw;
+
+            padding: 5px;
+
+            &__head{
+                &__cell{
+                    font-size: 1.3em;
+                    padding:1.4em;
+                }
+            }
+            &__body{
+                tr{
+                    font-size:1.4em;
+                    font-weight:600;
+                }
+            }
+        }
+    }
+    }
+    @include tablet{
+        padding-top: .5em;
+        .details{
+        padding-top: 2em;
+        &__table{
+
+
+            min-height:85vh;
+            min-width: 70vw;
+
+            padding: 5px;
+
+            &__head{
+                &__cell{
+                    font-size: 1.5em;
+                    padding:1.2em;
+                }
+            }
+            &__body{
+                tr{
+                    font-size:1.6em;
+                    font-weight:600;
+                }
+            }
+        }
+    }
+
+    }
+    @include desktop
+    {
+        padding-top: .5em;
+        .details{
+        padding-top: 3em;
+        &__table{
+
+
+            min-height:85vh;
+            min-width: 70vw;
+
+
+
+            &__head{
+                &__cell{
+                    font-size: 1.9em;
+                    padding:1.3em;
+                }
+            }
+            &__body{
+                tr{
+                    font-size:1.8em;
+                    font-weight:600;
+                }
+            }
+        }
+    }
+
+    }
+
+}
