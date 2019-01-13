@@ -30,6 +30,8 @@ export default {
 
 
                 },
+                user: {},
+                userUID: '',
             }
         },
         methods: {
@@ -50,7 +52,7 @@ export default {
         },
         created()
         {
-             axios.get('https://jogging-e3b56.firebaseio.com/user/'+eventBus.getUser().uid+'/trials.json')
+             axios.get('https://jogging-e3b56.firebaseio.com/user/'+this.userUID+'/trials.json')
             .then(res=> {
 
                 const data= res.data
@@ -82,6 +84,11 @@ export default {
                 })
 
             .catch(error=>console.log(error))
+             firebase.auth().onAuthStateChanged((user)=> {
+            if (user) {
+                this.userUID = user.uid;
+            }
+            });
 
         }
 

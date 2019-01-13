@@ -21,6 +21,8 @@
             signIn: function(){
                firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
                    (user) =>{
+                       this.$store.commit('setCurrentUser', user)
+                       //this.$store.dispatch('fetchUserProfile')
                        this.$router.replace('hello')
                    },
                    (err) =>{

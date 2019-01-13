@@ -1,34 +1,26 @@
 <template>
- <div class="row">
-
-
-           </div>
+  <div class="row">
+  <button @click="logout">logout</button>
+  </div>
 </template>
 <script>
-
-import firebase from 'firebase';
+import firebase from "firebase";
 export default {
+  data() {
+    return {};
+  },
 
-        data(){
-            return {
-
-
-            }
-        },
-
-
-
-         methods: {
-              logout: function(){
-                firebase.auth().signOut().then(()=>
-                {this.$router.replace('login')})
-            }
-
-        },
-
+  methods: {
+    logout: function() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.$router.push("login");
+        });
     }
-
+  }
+};
 </script>
 <style>
-
 </style>
