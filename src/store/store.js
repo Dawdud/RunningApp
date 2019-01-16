@@ -4,10 +4,36 @@ const fb= require('../firebaseConfig.js');
 
 Vue.use(Vuex);
 
+// handle page reload
+fb.auth.onAuthStateChanged(user => {
+  if (user) {
+      store.commit('setCurrentUser', user)
+      store.dispatch('fetchUserProfile')
+
+      fb.trialsCollection.orderBy('distance', 'desc').onSnapshot(QuerySnapshot=>{
+        let trialArray= []
+        QuerySnapshot.forEach(doc =>{
+          let trial= doc.data()
+          trial.id=doc.id
+          trialArray.push(trial)
+        })
+        store.commit('setTrials', trialArray)
+      })
+
+      fb.usersCollection.doc(user.uid).onSnapshot(doc => {
+          store.commit('setUserProfile', doc.data())
+      })
+
+
+  }
+})
+
+
 export const store= new Vuex.Store({
     state: {
         currentUser: null,
-        userProfile: new Object(),
+        userProfile: {},
+        trials: []
     },
     getters: {
       getUser: state=>{
@@ -15,6 +41,11 @@ export const store= new Vuex.Store({
       }
     },
     actions:{
+      clearData({commit}){
+        commit('setCurrentUser', null)
+        commit('setUserProfile', {})
+        commit('setTrials', null)
+      },
      fetchUserProfile({commit,state}){
        fb.usersCollection.doc(state.currentUser.uid).get()
        .then(res=>{
@@ -31,6 +62,14 @@ export const store= new Vuex.Store({
       },
       setUserProfile(state, val){
         state.userProfile= val
+      },
+      setTrials(state, val){
+        if(val){
+          state.trials= val
+        }
+        else{
+          state.trials=[]
+        }
       }
     }
 });

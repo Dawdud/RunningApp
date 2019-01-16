@@ -1,6 +1,7 @@
 <template>
   <div class="dashboard">
     <div class="dashboard__stats">
+
       <div class="dashboard__stats__month">
         <div class="dashboard__stats__info">
           <h3>W tym miesiącu przebiegłeś</h3>
@@ -17,7 +18,7 @@
           <h3>Dzisiaj przebiegłeś</h3>
         </div>
         <div class="dashboard__stats__content">
-          <h2>{{todaySum}}</h2>
+          <h2>{{trials[0].distance}}</h2>
         </div>
       </div>
     </div>
@@ -43,8 +44,7 @@
 
 
 <script>
-import axios from "axios";
-import firebase from "firebase";
+
 import { mapState } from 'vuex';
 
 
@@ -53,6 +53,7 @@ export default {
   data() {
     return {
              monthSum:0,
+             Trialdata: this.trials,
              today: new Date(
               new Date().getFullYear(),
               new Date().getMonth(),
@@ -72,38 +73,15 @@ export default {
     });*/
   },
   computed: {
-    ...mapState(['userProfile'])
+    ...mapState(['userProfile', 'trials'])
   },
 
-  watch: {
-    userUID: "loadUserData"
-  },
+
 
   methods: {
-    loadUserData() {
-      axios
-        .get(
-          `https://jogging-e3b56.firebaseio.com/user/${$store.state.currentUser.uid}/trials.json`
-        )
-        .then(res => {
-          console.log(res);
-          this.Trialdata = this.GetDataUser(res);
-          this.monthSum = this.SumMonth();
-          this.todaySum = this.getTodayTrial();
 
-          return axios.get(
-            `https://jogging-e3b56.firebaseio.com/user/${this.userUID}/goals.json`
-          );
-        })
-        .then(res => {
-
-          this.Goalsdata = this.GetDataUser(res);
-
-        })
-        .catch(error => console.log(error));
-    },
     GetDataUser(res) {
-      const responseData = res.data;
+      const responseData = this.trials;
       const users = [];
       for (let key in responseData) {
         const user = responseData[key];
@@ -115,7 +93,7 @@ export default {
      SumMonth() {
       let sum = 0;
 
-      for (let el in this.Trialdata) {
+      for (let el in this.trials) {
         let date = new Date(this.Trialdata[el].date);
         if (date.getMonth() + 1 == this.today.getMonth() + 1) {
           sum += this.Trialdata[el].distance;

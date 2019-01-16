@@ -12,7 +12,7 @@ import firebase from 'firebase'
 const fb = require('../../firebaseConfig.js')
 export default{
     name:'signUp',
-    data: function(){
+    data(){
         return {
             signupForm: {
             email:'',
@@ -21,7 +21,9 @@ export default{
         }
     },
     methods: {
-        signUp: function(){
+        signUp(){
+            this.performingRequest= true;
+            
             fb.auth.createUserWithEmailAndPassword(this.signupForm.email, this.signupForm.password).then(user => {
         this.$store.commit('setCurrentUser', user)
 
