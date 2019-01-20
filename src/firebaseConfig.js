@@ -25,8 +25,8 @@ db.settings(settings)
 
 const usersCollection = db.collection('users')
 const trialsCollection = db.collection('trials')
-const commentsCollection = db.collection('comments')
-const likesCollection = db.collection('likes')
+const goalsCollection = db.collection('goals')
+
 
 export {
     db,
@@ -34,6 +34,6 @@ export {
     currentUser,
     usersCollection,
     trialsCollection,
-    commentsCollection,
-    likesCollection
+    goalsCollection,
+
 }

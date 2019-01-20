@@ -6,6 +6,7 @@
         <button v-on:click="signUp">Sing Up</button>
         <span><router-link to="/login">or go back to login</router-link></span>
     </div>
+    
 </template>
 <script>
 import firebase from 'firebase'
@@ -23,7 +24,7 @@ export default{
     methods: {
         signUp(){
             this.performingRequest= true;
-            
+
             fb.auth.createUserWithEmailAndPassword(this.signupForm.email, this.signupForm.password).then(user => {
         this.$store.commit('setCurrentUser', user)
 

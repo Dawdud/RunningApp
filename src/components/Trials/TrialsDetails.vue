@@ -1,6 +1,6 @@
 <template>
   <div class="runningdetails">
-    <div class="col-lg-6">
+    <div >
       <app-running-trials></app-running-trials>
     </div>
 
@@ -15,7 +15,7 @@
           </tr>
         </thead>
         <tbody class="details__table__body">
-          <tr v-for="(data) in trials" >
+          <tr v-for="(data) in trials"  >
             <td class="details__table__body__cell">{{data.time}}</td>
             <td class="details__table__body__cell">{{data.date}}</td>
             <td class="details__table__body__cell">{{data.distance}}</td>

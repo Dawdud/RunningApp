@@ -11,27 +11,27 @@ let app;
 
 
 
-export const eventBus= new Vue(
+// export const eventBus= new Vue(
 
-  {
+//   {
 
-    methods: {
-      getUser(){
-
-
-    },
-    OnSubmit(dataObject, typeObject){
-      axios.post('https://jogging-e3b56.firebaseio.com/user/'+ this.getUser() +`/${typeObject}.json`,dataObject)
-               .then(res => {this.$router.push('/')})
-               .catch(error => console.log(error))
-
-    },
+//     methods: {
+//       getUser(){
 
 
+//     },
+//     OnSubmit(dataObject, typeObject){
+//       axios.post('https://jogging-e3b56.firebaseio.com/user/'+ this.getUser() +`/${typeObject}.json`,dataObject)
+//                .then(res => {this.$router.push('/')})
+//                .catch(error => console.log(error))
 
-   },
-  }
-);
+//     },
+
+
+
+//    },
+//   }
+// );
 
 
 
