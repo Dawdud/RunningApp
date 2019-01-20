@@ -15,7 +15,7 @@
           </tr>
         </thead>
         <tbody class="details__table__body">
-          <tr v-for="(data) in trials">
+          <tr v-for="(data) in trials" >
             <td class="details__table__body__cell">{{data.time}}</td>
             <td class="details__table__body__cell">{{data.date}}</td>
             <td class="details__table__body__cell">{{data.distance}}</td>
@@ -41,7 +41,7 @@ export default {
 
 
    computed: {
-    ...mapState(['userProfile', 'trials'])
+    ...mapState(['userProfile', 'trials', 'currentUser'])
   },
 
 

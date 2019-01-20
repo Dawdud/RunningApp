@@ -46,20 +46,10 @@ export default {
     };
   },
   computed: {
-      ...mapState(['userProfile','currentUser'])
+      ...mapState(['userProfile','currentUser', 'hiddentrials'])
   },
   methods: {
-    /*trialsSubmit() {
-      const trialDetails = {
-        distance: this.trial.distance,
-        date: this.trial.date,
-        time: this.trial.time,
-        city: this.trial.city,
-        userId: this.userId
-      };
-
-      eventBus.OnSubmit(trialDetails, "trials");
-    },*/
+    
     createTrials()
     {
       fb.trialsCollection.add({
@@ -71,7 +61,7 @@ export default {
 
       }).then(ref=>{
         this.trial.distance= ''
-        
+
       }).catch(err =>{
         console.log(err)
       })

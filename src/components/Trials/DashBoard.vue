@@ -8,6 +8,7 @@
         </div>
         <div class="dashboard__stats__content">
           <h2>{{monthSum}} metrów</h2>
+
         </div>
       </div>
     </div>
@@ -18,7 +19,9 @@
           <h3>Dzisiaj przebiegłeś</h3>
         </div>
         <div class="dashboard__stats__content">
-          <h2>{{trials[0].distance}}</h2>
+          <h2>{{todaySum}}</h2>
+
+
         </div>
       </div>
     </div>
@@ -51,32 +54,33 @@ import { mapState } from 'vuex';
 
 export default {
   data() {
+
     return {
              monthSum:0,
-             Trialdata: this.trials,
+             todaySum:0,
+
              today: new Date(
               new Date().getFullYear(),
               new Date().getMonth(),
               new Date().getDate()
             ),
-             todaySum: 0,
+
              Goalsdata: {},
 
               };
   },
 
-  created() {
-    /*firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        this.userUID = user.uid;
-      }
-    });*/
-  },
+
   computed: {
-    ...mapState(['userProfile', 'trials'])
+    ...mapState(['userProfile', 'trials']),
+
+
   },
 
-
+   created() {
+     this.getTodayTrial();
+     this.SumMonth();
+   },
 
   methods: {
 
@@ -90,32 +94,35 @@ export default {
       }
       return users;
     },
+
      SumMonth() {
       let sum = 0;
 
       for (let el in this.trials) {
-        let date = new Date(this.Trialdata[el].date);
+        let date = new Date(this.trials[el].date);
         if (date.getMonth() + 1 == this.today.getMonth() + 1) {
-          sum += this.Trialdata[el].distance;
+          sum += this.trials[el].distance;
         }
       }
-      return sum;
+      this.monthSum= sum;
     },
     getTodayTrial() {
       let sum = 0;
-      for (let element in this.Trialdata) {
-        let date = new Date(this.Trialdata[element].date);
+      for (let element in this.trials) {
+        let date = new Date(this.trials[element].date);
+
         let trialDate = new Date(
           date.getFullYear(),
           date.getMonth(),
           date.getDate()
         );
         if (trialDate.getTime() === this.today.getTime()) {
-          return this.Trialdata[element].distance;
-        } else {
-          return 0;
+            this.todaySum=  this.trials[element].distance;
+            console.log("new sum");
+
         }
       }
+
     },
 
   }
