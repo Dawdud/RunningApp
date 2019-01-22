@@ -1,93 +1,59 @@
 <template>
-<div class="container">
+  <div class="container">
     <div class="stats">
-        <div class="stats__chart">
+      <div class="stats__chart">
         <canvas id="myChart"></canvas>
-        </div>
+      </div>
     </div>
-</div>
-
+  </div>
 </template>
 <script>
-import Chart from  'chart.js';
-import axios from 'axios';
-import {eventBus} from '../../main.js';
+import Chart from "chart.js";
+import {runingChartData} from '../../runningChart.js'
+
+import { mapState } from 'vuex';
+import firebase from 'firebase';
 export default {
+  data() {
+    return {
 
-        data(){
-            return {
-                RunningChartData:{
-                    type:"bar",
-                    options:{
-                        responsive: true,
-                        lineTension:1,
-                        title:{
-                            display: true,
-                            text: 'Running Distance in meters',
-                            fontSize:20,
-                        }
-                    },
+    };
+  },
+  computed: {
+      ...mapState(['userProfile', 'trials']),
+  },
+  methods: {
+    createChart(chartId, chartData) {
+      const ctx = document.getElementById(chartId);
+      const myChart = new Chart(ctx, {
+        type: chartData.type,
+        data: chartData.data,
+        options: chartData.options
+      });
+    },
+    getStatsData()
+    {
+      const distance= [];
+      const date= [];
+      for(let key in this.trials){
+        const distanceTrial= this.trials[key].distance;
+        const dateTrial= this.trials[key].date;
 
-
-                },
-            }
-        },
-        methods: {
-            createChart(chartId, chartData)
-            {
-                const ctx= document.getElementById(chartId);
-                const myChart= new Chart(ctx, {
-                    type: chartData.type,
-                    data: chartData.data,
-                    options: chartData.options,
-                });
-            }
-        },
-        mounted()
-        {
+        distance.push(distanceTrial);
+        date.push(dateTrial);
+      }
 
 
-        },
-        created()
-        {
-             axios.get('https://jogging-e3b56.firebaseio.com/user/'+eventBus.getUser().uid+'/trials.json')
-            .then(res=> {
+      return [distance, date];
+    },
 
-                const data= res.data
-                const distance= [];
-                const date=[];
-                for(let key in data){
-                   const distanceTrial= data[key].distance;
-                   const  dateTrial= data[key].date;
-
-                   distance.push(distanceTrial);
-                   date.push(dateTrial);
-
-                }
-                this.RunningChartData.data= {
-                    labels: date,
-                    datasets:[{
-                        label:"distance",
-                        data: distance,
-                        backgroundColor: '#3C65F2',
-                    }],
-
-                };
-                this.createChart('myChart', this.RunningChartData)
+  },
+  mounted() {
+     this.createChart("myChart", runingChartData(this.getStatsData()[1], this.getStatsData()[0] ))
+  },
 
 
-
-
-
-                })
-
-            .catch(error=>console.log(error))
-
-        }
-
-    }
-
+};
 </script>
 <style>
-
 </style>
