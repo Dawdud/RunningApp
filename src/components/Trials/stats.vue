@@ -9,12 +9,12 @@
 </template>
 <script>
 import Chart from "chart.js";
+import { mapState } from 'vuex';
 import firebase from 'firebase';
-import axios from "axios";
-import { eventBus } from "../../main.js";
 export default {
   data() {
     return {
+
       RunningChartData: {
         type: "bar",
         options: {
@@ -27,9 +27,12 @@ export default {
           }
         }
       },
-      user: {},
-      userUID: ""
+
+
     };
+  },
+  computed: {
+      ...mapState(['userProfile', 'trials']),
   },
   methods: {
     createChart(chartId, chartData) {
@@ -39,18 +42,53 @@ export default {
         data: chartData.data,
         options: chartData.options
       });
+    },
+    getStatsData()
+    {
+      const distance= [];
+      const date= [];
+      for(let key in this.trials){
+        const distanceTrial= this.trials[key].distance;
+        const dateTrial= this.trials[key].date;
+
+        distance.push(distanceTrial);
+        date.push(dateTrial);
+      }
+
+
+      return [distance, date];
+    },
+   setChartData(){
+       this.RunningChartData.data = {
+          labels: '2010-09-18', //his.getStatsData()[0],
+          datasets: [
+            {
+              label: "distance",
+              data: 4500, //this.getStatsData()[0],
+              backgroundColor: "#3C65F2"
+            }
+          ]
+        };
+        
+        this.createChart("myChart", this.RunningChartData);
+
     }
   },
   mounted() {},
   created() {
-    axios
+
+    this.getStatsData();
+    this.setChartData();
+
+
+    /*axios
       .get(
         "https://jogging-e3b56.firebaseio.com/user/" +
           this.userUID +
           "/trials.json"
       )
       .then(res => {
-        const data = res.data;
+       / const data = res.data;
         const distance = [];
         const date = [];
         for (let key in data) {
@@ -78,8 +116,11 @@ export default {
       if (user) {
         this.userUID = user.uid;
       }
-    });
+    });*/
+
+
   }
+
 };
 </script>
 <style>
