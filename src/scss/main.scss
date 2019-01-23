@@ -5,11 +5,14 @@
 @import 'layout/content';
 @import 'layout/sidenav';
 @import 'layout/modal';
+@import 'layout/button';
 
 @import 'pages/home';
 @import 'pages/dashboard';
 @import 'pages/details';
 @import 'pages/statistics';
+@import 'pages/login';
+@import 'pages/signUp';
 
 
 @import 'utils/functions';

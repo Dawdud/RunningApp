@@ -65,26 +65,5 @@ export default {
 </script>
 
 <style lang="scss" >
-/*.container{
-    margin: 0 auto;
-    padding: 0;
-    min-width:100vw;
 
-
-}
-header{
-
-    background-color: white;
-    border-bottom:  0.009em solid black;
-    min-height: 5vh !important;
-
-}
-.col-lg-2{
-    background-color: $sidebar-color;
-    color: white;
-}
-
-.h-100{
-    min-height: 100vh;
-}*/
 </style>

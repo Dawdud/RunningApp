@@ -3,10 +3,10 @@
         <h2>Let's create a new account!</h2>
         <input type="text" v-model="signupForm.email" placeholder="Email">
         <input type="password" v-model="signupForm.password" placeholder="Password">
-        <button v-on:click="signUp">Sing Up</button>
+        <button @click="signUp">Sing Up</button>
         <span><router-link to="/login">or go back to login</router-link></span>
     </div>
-    
+
 </template>
 <script>
 import firebase from 'firebase'
