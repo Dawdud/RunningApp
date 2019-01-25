@@ -45,12 +45,7 @@ export default {
   },
 
 
-  methods: {
-
-
-
-
-  },
+  methods: {},
    components: {
     "app-running-trials": RunningTrial
   }

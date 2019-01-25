@@ -17,10 +17,7 @@ const auth = firebase.auth()
 const currentUser = auth.currentUser
 
 
-const settings = {
-    timestampsInSnapshots: true
-}
-db.settings(settings)
+
 
 
 const usersCollection = db.collection('users')

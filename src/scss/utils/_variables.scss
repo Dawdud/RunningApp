@@ -5,6 +5,8 @@ $desktop-width: 62em;
 $smartphone-width: 20em;
 /*====colors====*/
 $white: white;
+$secondary-color: #610D8F;
+$third-color: #550B7D;
 $border-color: #D1D1D1;
 $content-bg-color:rgba(209, 209, 209,0.3);
 $nav-bg-color: #2E2D2B;
@@ -20,7 +22,7 @@ $table-row-hover: #4E5066;
 $table-row-hover-border: #22262e;
 $table-cell-border-primary:#9ea7af;
 $table-cell-border-secondary: #343a45;
-
+$placeholder-color: #5E5E5E;
 /*====shadows====*/
 $table-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 $table-font-shadow:  0 1px 1px rgba(0, 0, 0, 0.1);
@@ -30,5 +32,7 @@ $nav-font-primary: 1.6em "Raleway", sans-serif;
 $nav-font-tablet:   1.2em ;
 $nav-toogle-font:  2.5em  ;
 $third-font: 300 1.2em 'Encode Sans Semi Condensed', sans-serif;
-$content-header-font: 700  2em 'Mukta', sans-serif;;
+$content-header-font: 700  2em 'Mukta', sans-serif;
+$login-info-font: 400 2.6em  'Mukta', sans-serif;
+$login-placeholder-font: 1.2em "Raleway", sans-serif;
 $tab-font-primary: 1.7em "Raleway", sans-serif;
