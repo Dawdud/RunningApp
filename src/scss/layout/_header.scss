@@ -1,10 +1,28 @@
+
+
 header{
     display: flex;
     width: 100vw;
-    height: 6vh;
+    min-height: 5vh;
     justify-content: flex-start;
     align-items: center;
-    color: white;
-    background-color: black;
+    color: $white;
+    background-color: $header-color;
+    border-bottom: .2em solid black;
+    h1{
+      font: $header-font;
+      padding: .9em;
+      
+    }
+    .highlight{
+        background-color: $secondary-color;
+        padding: .1em;
+        border: .1em solid $third-color;
+        border-radius: 6px;
+        
+
+    }
+    
+
     
 }

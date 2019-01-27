@@ -14,7 +14,7 @@
        text-align: center;
        font-size: 1.4em;
        padding: 1em;
-       width: 35vw;
+       width: 120px;
        
        transition: all 0.5s;
        cursor: pointer;
@@ -22,6 +22,6 @@
        &:hover{
            background-color: $third-color;
        }
-
+      
     }
 }

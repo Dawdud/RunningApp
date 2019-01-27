@@ -1,17 +1,27 @@
 <template>
   <div class="login">
     <app-header></app-header>
+     
     <div class="login__content">
 
       <form action class="form">
         <h1>Sign In</h1>
-        <div class="form__group">
-        <input v-model="email" type="text"  class="form__input">
+        <transition name="form__fade">
+        <div v-if="errorMsg !==''" class= "form__error">
+         
+           <p> <span style="font-size: 1.1em; padding:.1rem">
+              <i class="fas fa-exclamation-circle"></i>
+            </span>
+             {{errorMsg}}</p>
+           </div>
+        </transition>
+        <div  class="form__group">
+        <input v-model="email" type="text"  class="form__input" required>
         <span class="bar"></span>
          <label  class="form__label">Email</label>
         </div>
         <div class="form__group">
-        <input v-model="password" type="password"  class="form__input">
+        <input v-model="password" type="password"  class="form__input" required>
         <span class="bar"></span>
         <label class="form__label">Password</label>
         </div>
@@ -23,14 +33,12 @@
     <footer class="login__footer">
       <p>
         <router-link to="/sign-up">You don't have an account? You can create one</router-link>
+        
       </p>
+     
     </footer>
 
-    <transition name="fade">
-      <div v-if="errorMsg !==''" class="error-msg">
-        <p>{errorMsg}</p>
-      </div>
-    </transition>
+   
   </div>
 </template>
 <script>
@@ -57,7 +65,7 @@ export default {
             this.$router.replace("hello");
           },
           err => {
-            alert("Ooops" + err.message);
+            
             this.errorMsg = err.message;
           }
         );

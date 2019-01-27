@@ -10,11 +10,10 @@
 
     &__content{
         background-color: $white;
-        width:  85vw;
         border-radius: 0.5em;
+        margin-top: 6em;
+        padding: 4em;
        align-self: center;
-       margin-top: 9em;
-       padding: 4em;
        justify-content: center;
        .form{
          h1{
@@ -26,29 +25,18 @@
             margin-bottom:45px; 
          }
          &__input{
-           margin: 1.4em 0 1.4em 0;
-           padding: 1em;
+           margin: 10px 0 10px 0;
+           padding: 20px;
            border: none;
+           font: $input-font;
            background-color: transparent;
-           border-bottom: .1em solid  $table-cell-border-primary;
-           color:$table-row-font-color;
+           border-bottom: 1px solid  $table-cell-border-primary;
+           color:$black;
            box-sizing: border-box;
-           
-            width: 60vw;
-        
-            &::placeholder{
-                font: $login-placeholder-font;
-                color: $placeholder-color;
-                transition: 0.2s ease-in-out;
-                pointer-events: none;
-            }
+
             &:focus{
                 outline: none;
-                &::placeholder{
-                    font-size: .9em;
-                    transform: translateY(-10px);
-                    color: $secondary-color;
-                }
+
               .bar:before, .bar:after{
                   width:50%;
               }
@@ -58,14 +46,15 @@
             {
                 width:50%;
             }
-            &:focus ~ .form__label, 
+            &:focus ~ label,  &:valid ~ label
             {
-                top: -.5em;
-                font-size: .9em;
+               
+                top: 9px;
+                font-size: 1.3em;
                 color: $secondary-color;
 
             }
-            
+
 
 
          }
@@ -74,22 +63,19 @@
             color: $placeholder-color;
             transition: 0.2s ease-in-out;
             pointer-events: none;
-            position: absolute;
-            left:1em;
-            top:2.5em;
             
-            
+
 
          }
          .bar{position: relative;
-             display: block;
-              width: 62vw;
+              display: block;
+              
             &:after, &:before
             {
                 content:'';
-                height:.2em; 
+                height:2px; 
                 width:0;
-                bottom:18px; 
+                bottom:9px; 
                 position:absolute;
                 background:$secondary-color; 
                 transition:0.2s ease all; 
@@ -104,13 +90,94 @@
 
 
         }
+        &__error
+        {
+          color: $error-color;
+          padding: 15px;
+          font: $error-font;
+          background-color: $error-bg-color;
+          border: 1px solid $content-bg-color; 
+          border-radius: 3px;
+        }
+        &__fade
+        {
+            &-enter{
+                opacity:0;
+                transform: rotateY(50deg);
+                &-to{
+                    opacity: 1;
+                    transform: rotateY(0deg);
+                }
+                &-active{
+                    transition: opacity, transform 300ms ease-out;
+                    
+                }
+            }
+        }
         
     
           
 
 
        }
+       @include smartphone{
+        width:  85vw;
+      
+        .form{
+            &__input{
+                width: 60vw;
+            }
+            &__label{
+            position: absolute;
+            left:10px;
+            top:40px;
+            }
+            .bar{
+                width: 62vw;
+            }
+        }
+       }
+       @include tablet{
+        width: 65vw;
+        .form{
+            &__input{
+                width: 53vw;
+            }
+            &__label{
+                position: absolute;
+                left: 14px;
+               
+                
+               
+            }
+            .bar{
+                width: 54vw;
+                
+            }
+        }
+       }
+       @include desktop{
+        width: 30vw;
+        .form{
+            &__input{
+                width: 23vw;
+            }
+            &__label{
+                position: absolute;
+                left: 30px;
+               
+                
+               
+            }
+            .bar{
+                width: 25vw;
+                
+            }
+        }
+
+       }
     }
+
     &__footer{
 
         padding: 2em;
