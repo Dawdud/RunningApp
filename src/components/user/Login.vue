@@ -4,7 +4,7 @@
      
     <div class="login__content">
 
-      <form action class="form">
+      <form action class="form" @submit.prevent>
         <h1>Sign In</h1>
         <transition name="form__fade">
         <div v-if="errorMsg !==''" class= "form__error">

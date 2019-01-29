@@ -15,165 +15,19 @@
         padding: 4em;
        align-self: center;
        justify-content: center;
-       .form{
-         h1{
-             padding: 1em 0 1em 0;
-             font: $login-info-font;
-         }
-         &__group{
-            position:relative; 
-            margin-bottom:45px; 
-         }
-         &__input{
-           margin: 10px 0 10px 0;
-           padding: 20px;
-           border: none;
-           font: $input-font;
-           background-color: transparent;
-           border-bottom: 1px solid  $table-cell-border-primary;
-           color:$black;
-           box-sizing: border-box;
-
-            &:focus{
-                outline: none;
-
-              .bar:before, .bar:after{
-                  width:50%;
-              }
-
-            }
-            &:focus ~ .bar:before, &:focus ~ .bar:after
-            {
-                width:50%;
-            }
-            &:focus ~ label,  &:valid ~ label
-            {
-               
-                top: 9px;
-                font-size: 1.3em;
-                color: $secondary-color;
-
-            }
-
-
-
-         }
-         &__label{
-            font: $login-placeholder-font;
-            color: $placeholder-color;
-            transition: 0.2s ease-in-out;
-            pointer-events: none;
-            
-
-
-         }
-         .bar{position: relative;
-              display: block;
-              
-            &:after, &:before
-            {
-                content:'';
-                height:2px; 
-                width:0;
-                bottom:9px; 
-                position:absolute;
-                background:$secondary-color; 
-                transition:0.2s ease all; 
-            }
-            &:after{
-                right:50%; 
-            }
-            &:before{
-                left:50%;
-            }
-
-
-
-        }
-        &__error
-        {
-          color: $error-color;
-          padding: 15px;
-          font: $error-font;
-          background-color: $error-bg-color;
-          border: 1px solid $content-bg-color; 
-          border-radius: 3px;
-        }
-        &__fade
-        {
-            &-enter{
-                opacity:0;
-                transform: rotateY(50deg);
-                &-to{
-                    opacity: 1;
-                    transform: rotateY(0deg);
-                }
-                &-active{
-                    transition: opacity, transform 300ms ease-out;
-                    
-                }
-            }
-        }
-        
     
-          
-
-
-       }
        @include smartphone{
-        width:  85vw;
+        width: 90vw;
       
-        .form{
-            &__input{
-                width: 60vw;
-            }
-            &__label{
-            position: absolute;
-            left:10px;
-            top:40px;
-            }
-            .bar{
-                width: 62vw;
-            }
-        }
+       
        }
        @include tablet{
         width: 65vw;
-        .form{
-            &__input{
-                width: 53vw;
-            }
-            &__label{
-                position: absolute;
-                left: 14px;
-               
-                
-               
-            }
-            .bar{
-                width: 54vw;
-                
-            }
-        }
+       
        }
        @include desktop{
         width: 30vw;
-        .form{
-            &__input{
-                width: 23vw;
-            }
-            &__label{
-                position: absolute;
-                left: 30px;
-               
-                
-               
-            }
-            .bar{
-                width: 25vw;
-                
-            }
-        }
+       
 
        }
     }
