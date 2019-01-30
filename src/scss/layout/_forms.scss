@@ -55,7 +55,7 @@
         &::placeholder{
             padding: 16px;
         }
-      
+       
        
 
        }
@@ -177,6 +177,10 @@
 
 
    }
+   .invalid__input{
+    border: 1px solid red;
+    
+}
 
 
 
@@ -186,3 +190,4 @@
   
    
     
+ 

@@ -22,6 +22,9 @@
        &:hover{
            background-color: $third-color;
        }
+       &:disabled{
+           background-color: $fourth-color;
+       }
       
     }
 }

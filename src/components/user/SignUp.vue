@@ -4,16 +4,30 @@
     <div class="login__content">
       <form action class="form" @submit.prevent>
         <h1>Let's create a new account!</h1>
-         <div  class="form__group--signup">
+         <div  class="form__group--signup"  >
              
-        <input class="form__input--signup" type="text" v-model="signupForm.email" placeholder="Email">
+        <input 
+        :class="{invalid__input: $v.signupForm.email.$error}"
+        class="form__input--signup" 
+        type="text" 
+        @blur="$v.signupForm.email.$touch()"
+        v-model="signupForm.email" 
+        placeholder="Email">
+         <p v-if="!$v.signupForm.email.email ">Please provide a valid email adress.</p>
+          <p v-if="!$v.signupForm.email.required && clickSumbit">This field is required.</p>
          </div>
          <div  class="form__group--signup">
              
-        <input class="form__input--signup" type="password" v-model="signupForm.password" placeholder="Password">
+        <input class="form__input--signup" 
+        type="password" 
+         @blur="$v.signupForm.password.$touch()"
+        v-model="signupForm.password" 
+        placeholder="Password">
+         <p v-if="!$v.signupForm.password.required && clickSumbit">This field is required.</p>
+       
          </div>
         
-        <button @click="signUp" class="btn__form">Sing Up</button>
+        <button @click="signUp" :disabled="$v.signupForm.$error" class="btn__form">Sing Up</button>
       </form>
     </div>
     
@@ -30,19 +44,33 @@
 <script>
 import firebase from "firebase";
 import header from "./header";
+import {required, email} from 'vuelidate/lib/validators';
 const fb = require("../../firebaseConfig.js");
 export default {
   name: "signUp",
   data() {
     return {
+      clickSumbit: false,
       signupForm: {
         email: "",
         password: ""
       }
     };
   },
+  validations: {
+      signupForm:{    
+      email:{
+      required,
+      email
+    },
+    password: {
+      required
+    }
+    }
+  },
   methods: {
     signUp() {
+      this.clickSumbit=true;
       this.performingRequest = true;
 
       fb.auth
