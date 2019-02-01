@@ -4,7 +4,7 @@
       <app-running-trials></app-running-trials>
     </div>
 
-    <div class="details">
+    <div v-if="trials.length" class="details">
       <table class="details__table">
         <thead class="details__table__head">
           <tr>

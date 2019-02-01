@@ -7,23 +7,24 @@
          <div  class="form__group--signup"  >
              
         <input 
-        :class="{invalid__input: $v.signupForm.email.$error}"
+        :class="{invalid__input: $v.signupForm.email.$error }"
         class="form__input--signup" 
         type="text" 
         @blur="$v.signupForm.email.$touch()"
         v-model="signupForm.email" 
         placeholder="Email">
-         <p v-if="!$v.signupForm.email.email ">Please provide a valid email adress.</p>
-          <p v-if="!$v.signupForm.email.required && clickSumbit">This field is required.</p>
+         <p v-if="!$v.signupForm.email.email" class="invalid__input--inf">Please provide a valid email adress.</p>
+          <p v-if="!$v.signupForm.email.required && clickSumbit" class="invalid__input--inf">This field is required.</p>
          </div>
          <div  class="form__group--signup">
              
         <input class="form__input--signup" 
         type="password" 
+        
          @blur="$v.signupForm.password.$touch()"
         v-model="signupForm.password" 
         placeholder="Password">
-         <p v-if="!$v.signupForm.password.required && clickSumbit">This field is required.</p>
+         <p v-if="!$v.signupForm.password.required && clickSumbit" class="invalid__input--inf">This field is required.</p>
        
          </div>
         

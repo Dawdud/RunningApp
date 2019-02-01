@@ -179,6 +179,12 @@
    }
    .invalid__input{
     border: 1px solid red;
+    &--inf
+    {
+        color: red;
+        padding-top: 10px;
+        font: $third-font;
+    }
     
 }
 
