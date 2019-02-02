@@ -27,4 +27,16 @@
        }
       
     }
+    &__modal{
+        display: inline-block;
+        border-radius: 8px;
+        margin: 20px;
+        background-color: $secondary-color;
+        border: none;
+        color: #ffffff;
+        text-align: center;
+        font-size: 1.4em;
+        padding: 1em;
+        width: 120px;
+    }
 }

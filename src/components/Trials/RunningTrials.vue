@@ -1,32 +1,49 @@
 <template>
   <div class="trials">
-     <button class="trials___btn" @click="openTrialModal()">Trial</button>
-    <transition name="fade">
-      <div v-if="showTrialModal" class="modal">
-        <div class="modal__container">
-           <a @click="closeTrialModal()">X</a>
-        <form >
-          <div class="form-group">
-            <label for="trial-time">Time:</label>
-            <input type="time" id="trial-time" class="form-control" v-model="trial.time" step="2">
-            <label for="trial-date">Date:</label>
-            <input type="date" id="trial-date" class="form-control" v-model="trial.date">
-            <label for="trial-distance">Distance in meters:</label>
+     <button class="btn__modal" @click="openTrialModal()">Trial</button>
+       <transition name="modal__fade">
+      <div v-if="showTrialModal" class="modal" @click="closeTrialModal()" >
+         
+        <div class="modal__container" @click.stop>
+          
+           
+          
+           
+          
+        <form class="form">
+          <div class="form__group--modal">
+            <label for="trial-time" class="form__label--modal">Time:</label>
+            <input type="time" id="trial-time" class="form__input--modal" v-model="trial.time" step="2">
+          </div>
+          <div class="form__group--modal">
+            <label for="trial-date" class="form__label--modal">Date:</label>
+            <input type="date" id="trial-date" class="form__input--modal" v-model="trial.date">
+          </div>
+          <div class="form__group--modal">
+            <label for="trial-distance" class="form__label--modal">Distance in meters:</label>
             <input
               type="number"
               id="trial-distance"
-              class="form-control"
+              class="form__input--modal"
               v-model.number="trial.distance"
             >
-            <label for="trial-city">City</label>
-            <input type="text" id="trial-city" class="form-control" v-model="trial.city">
           </div>
-          <button @click="createTrials" class="btn btn-primary">Add trial</button>
+          <div class="form__group--modal">
+            <label for="trial-city" class="form__label--modal">City</label>
+            <input type="text" id="trial-city" class="form__input--modal" v-model="trial.city">
+          </div>
+          <button @click="createTrials" class="btn__modal">Add trial</button>
         </form>
+          
       </div>
+         
+        
+       
       </div>
-    </transition>
+       </transition>
+    
   </div>
+  
 </template>
 
 

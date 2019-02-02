@@ -1,31 +1,84 @@
 .modal {
     position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(rgba(32, 32, 32, 0), 0.4);
+    
+
+     background: rgba(rgba(32, 32, 32, 0), 0.7);
+     z-index: 9998;
+    //transition: opacity .3s ease;
+    
+    &__overlay{
+     background: rgba(rgba(32, 32, 32, 0), 0.4);
     z-index: 9998;
+    height: 100vh;
+    width: 100vw;
     transition: opacity .3s ease;
-
-
+    }
     &__container {
-        position: relative;
-        max-width: 600px;
-        margin: 30vh auto 0;
-        padding: 2rem;
-        border-radius: 3px;
+       
+       
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 20vh;
+        
+        border-radius: 4px;
         background: white;
         box-shadow: 0 0 20px 0 rgba(rgba(32, 32, 32, 0), 0.5);
 
         a {
             position: absolute;
-            top: 5px;
-            right: 10px;
+            top: 200px;
+            right: 20px;
             padding: 5px;
         }
         .button {
-            margin-top: 1rem;
+            margin:0 auto;
         }
     }
+    &__fade
+   {
+    &-enter,
+    &-leave-active {
+      opacity: 0;
+    }
+  
+    &-enter-active ,
+    &-leave-active {
+      transition: opacity .5s ease-out
+    }
+   }
+   @include smartphone{
+       
+       &__container{
+        width: 90vw;
+        margin-top: 20vh;
+       
+       }
+
+   }
+   @include tablet{
+      
+    &__container{
+        width: 60vw;
+        margin-left: 22vw;
+        
+       }
+
+
+   }
+   @include desktop{
+    &__container{
+        width: 40vw;
+        margin-left: 1vw;
+        
+       }
+   }
+
 }

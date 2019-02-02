@@ -14,6 +14,19 @@
        
         
        }
+       &--modal{
+           display: flex;
+           flex-direction: column;
+           justify-content: center;
+           align-self: center;
+           padding-bottom: 20px;
+           &:first-child{
+               padding-top: 35px;
+               
+
+           }
+           
+       }
       
        
     }
@@ -55,10 +68,20 @@
         &::placeholder{
             padding: 16px;
         }
-       
-       
-
+        
        }
+       &--modal{
+        align-self: center;
+        font: $input-font;
+        border: 1px solid  $border-color;
+        border-radius: 5px;
+        &[type="text"], &[type="date"],&[type="number"],
+        &[type="time"], &[type="month"]
+        {
+            padding-left: 20px;
+        }
+        }
+   
 
 
 
@@ -68,6 +91,11 @@
        color: $placeholder-color;
        transition: 0.2s ease-in-out;
        pointer-events: none;
+       &--modal{
+        font: $label-font;
+        align-self: flex-start;
+      
+       }
        
 
 
@@ -125,11 +153,19 @@
         &--signup{
             width: 65vw;
         }
+        &--modal{
+            min-width:70vw;
+        padding:  8px 0 8px 0;
+
+        }
     }
     &__label{
     position: absolute;
     left:10px;
     top:40px;
+    &--modal{
+        padding: 5px 0px 8px 40px;
+    }
     }
     .bar{
         width: 62vw;
@@ -141,11 +177,17 @@
         &--signup{
             width: 55vw;
         }
+        &--modal{
+            min-width: 50vw
+
+        }
     }
     &__label{
         position: absolute;
         left: 14px;
-       
+        &--modal{
+            padding: 5px 0px 8px 50px;
+        }
         
        
     }
@@ -162,11 +204,16 @@
         &--signup{
             width: 23vw;
         }
+        &--modal{
+            min-width: 30vw;
+        }
     }
     &__label{
         position: absolute;
         left: 30px;
-       
+        &--modal{
+            padding: .5vw 0 .5vw 6vw;
+        }
         
        
     }

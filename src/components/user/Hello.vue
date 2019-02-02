@@ -1,7 +1,10 @@
 <template>
   <div class="content">
+    
     <aside class="aside">
+     
       <nav class="aside__nav" role="custom-dropdown">
+         
         <span class="navbar-toggle" @click="toggleMenu= !toggleMenu">
           <i class="fas fa-bars"></i>
         </span>
@@ -27,7 +30,9 @@
               <i class="fas fa-chart-bar"></i>
             </span>stats
           </router-link>
-          <li><button @click="logout()"> logout</button></li>
+          <li><a @click="logout()"> <span style="font-size: 1.1em; padding:.8rem">
+              <i class="fas fa-sign-out-alt"></i>
+            </span> logout</a></li>
         </ul>
 
       </nav>
@@ -42,7 +47,7 @@
 
 <script>
 import firebase from 'firebase'
-
+import header from "./header";
 export default {
   name: "hello",
   data() {
@@ -60,6 +65,9 @@ export default {
         });
     }
   },
+  components: {
+    "app-header": header
+  }
 
 };
 </script>
