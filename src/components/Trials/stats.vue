@@ -1,11 +1,15 @@
 <template>
-  <div class="container">
+  
     <div class="stats">
+       <div class="goal__info">
+         <h2 class="goal__info--text">Statistics</h2>     
+     
+     </div>
       <div class="stats__chart">
         <canvas id="myChart"></canvas>
       </div>
     </div>
-  </div>
+  
 </template>
 <script>
 import Chart from "chart.js";

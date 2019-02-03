@@ -2,10 +2,9 @@
   <div class="goal">
     
     <div class="goal__info">
-      <h2>Goals</h2>
-     
+           <h2 class="goal__info--text">Goals</h2>     
+          <button class="btn__modal goal__info--btn" @click="openGoalModal()">add goal</button>
       
-    <button class="btn__modal" @click="openGoalModal()">Goals</button>
     </div>
     
     <transition name="modal__fade">

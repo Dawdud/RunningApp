@@ -4,11 +4,14 @@
     <aside class="aside">
      
       <nav class="aside__nav" role="custom-dropdown">
+        
+      <h1 class="logo--nav">Running<span class="logo__highlight">App</span></h1>
+      
          
         <span class="navbar-toggle" @click="toggleMenu= !toggleMenu">
           <i class="fas fa-bars"></i>
         </span>
-
+       
         <ul class="aside__nav__main" :class="{toggle:toggleMenu}">
           <router-link tag="li" to="/hello/dashboard">
             <span style="font-size: 1.1em; padding:.8rem">

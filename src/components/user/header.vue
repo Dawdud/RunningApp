@@ -1,7 +1,7 @@
 <template>
 
 <header class="header">
-    <h1>Running<span class="highlight">App</span></h1>
+    <h1 class="logo">Running<span class="logo__highlight">App</span></h1>
 </header>
 
 

@@ -1,0 +1,19 @@
+.logo{
+    font: $header-font;
+    padding: .9em;
+    color: $white;
+    &--nav{
+        font: $nav-logo-font;
+        color: $white;
+        padding: .2em;
+    }
+  
+  &__highlight{
+      background-color: $secondary-color;
+      padding: .1em;
+      border: .1em solid $third-color;
+      border-radius: 6px;
+      
+
+  }
+}

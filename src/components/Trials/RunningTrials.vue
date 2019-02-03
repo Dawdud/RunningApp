@@ -1,6 +1,9 @@
 <template>
   <div class="trials">
-     <button class="btn__modal" @click="openTrialModal()">Trial</button>
+     <div class="goal__info">
+         <h2 class="goal__info--text">Trials</h2>     
+     <button class="btn__modal goal__info--btn" @click="openTrialModal()"> add Trial</button>
+     </div>
        <transition name="modal__fade">
       <div v-if="showTrialModal" class="modal" @click="closeTrialModal()" >
          
