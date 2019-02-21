@@ -1,47 +1,59 @@
-@import '../utils/mixins';
-@import '../utils/variables';
+@import "../utils/mixins";
+@import "../utils/variables";
 
+.goal {
+  min-height: 100vh;
 
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-.goal{
+    &--text {
+      font: $info-font;
+      padding-left: 15px;
+    }
+    &--btn {
+    }
+  }
+  &__progressbar{
+    background-color: $progress-color;
+    border-radius: 13px;
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 23vh;
    
+    padding: 4px;
+  }
+  &__progress{
     
-    min-height: 100vh;
-
-    &__info{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-       
-        &--text{
-            font: $info-font;
-            padding-left: 15px; 
-            
-        }
-        &--btn{
-            
-        }
-       
-    }
-    @include smartphone{
-        min-width: 95vw;
-        margin-top: 10px;
-    }
-    @include tablet{
-        min-width: 80vw;
-        margin-top: -30px;
-
-    }
-    @include desktop{
-        min-width: 75vw;
-        &__info{
-            
-            &--btn{
-                
-            }
-        }
-
+    background-color: $secondary-color;
+    width: 20%;
+    height: 12px;
+    border-radius: 9px;
+  }
+  &__details{
+    display: flex;
+    justify-content: flex-start;
+    .dashboard__stats{
+      min-width: 32vh;
     }
 
 
+  }
+  @include smartphone {
+    min-width: 95vw;
+    margin-top: 10px;
+  }
+  @include tablet {
+    min-width: 80vw;
+    margin-top: -30px;
+  }
+  @include desktop {
+    min-width: 75vw;
+    &__info {
+      &--btn {
+      }
+    }
+  }
 }

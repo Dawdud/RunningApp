@@ -1,6 +1,5 @@
-import { shallowMount, mount } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import Hello from '@/components/user/Hello.vue'
-
 
 // describe('HelloWorld.vue', () => {
 //   it('renders props.msg when passed', () => {
@@ -11,9 +10,9 @@ import Hello from '@/components/user/Hello.vue'
 //     expect(wrapper.text()).toMatch(msg)
 //   })
 // })
-describe('Hello', ()=>{
+describe('Hello', () => {
   const wrapper = mount(Hello)
-  it('span click should set toggleMenu to false ', ()=>{
+  it('span click should set toggleMenu to false ', () => {
     expect(wrapper.vm.toggleMenu).toBe(false)
     const span = wrapper.find('span')
     span.trigger('click')

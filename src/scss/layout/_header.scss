@@ -1,16 +1,10 @@
+.header {
+  display: flex;
+  width: 100vw;
+  min-height: 5vh;
+  justify-content: flex-start;
+  align-items: center;
 
-
-.header{
-    display: flex;
-    width: 100vw;
-    min-height: 5vh;
-    justify-content: flex-start;
-    align-items: center;
-    
-    background-color: $header-color;
-    border-bottom: .2em solid black;
-    
-    
-
-    
+  background-color: $header-color;
+  border-bottom: 0.2em solid black;
 }

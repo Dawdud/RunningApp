@@ -1,46 +1,39 @@
-@import '../utils/mixins';
-@import '../utils/variables';
+@import "../utils/mixins";
+@import "../utils/variables";
 
-.login{
-    display: flex;
-    flex-direction: column;
+.login {
+  display: flex;
+  flex-direction: column;
 
-    min-height: 100vh;
-    background-color: $content-bg-color;
+  min-height: 100vh;
+  background-color: $content-bg-color;
 
-    &__content{
-        background-color: $white;
-        border-radius: 0.5em;
-        margin-top: 6em;
-        padding: 4em;
-       align-self: center;
-       justify-content: center;
-    
-       @include smartphone{
-        width: 90vw;
-      
-       
-       }
-       @include tablet{
-        width: 65vw;
-       
-       }
-       @include desktop{
-        width: 30vw;
-       
+  &__content {
+    background-color: $white;
+    border-radius: 0.5em;
+    margin-top: 6em;
+    padding: 4em;
+    align-self: center;
+    justify-content: center;
 
-       }
+    @include smartphone {
+      width: 90vw;
     }
-
-    &__footer{
-
-        padding: 2em;
-        margin: 0 auto;
-        a{
-            text-decoration: none;
-            font: $third-font;
-            color:$secondary-color; 
-        }
+    @include tablet {
+      width: 65vw;
     }
+    @include desktop {
+      width: 30vw;
+    }
+  }
 
+  &__footer {
+    padding: 2em;
+    margin: 0 auto;
+    a {
+      text-decoration: none;
+      font: $third-font;
+      color: $secondary-color;
+    }
+  }
 }

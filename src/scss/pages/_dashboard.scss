@@ -1,82 +1,60 @@
-@import '../utils/mixins';
-@import '../utils/variables';
-.dashboard
-{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+@import "../utils/mixins";
+@import "../utils/variables";
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1.2rem;
+  &__stats {
+    padding: 2rem 0 5rem 0;
     margin: 1.2rem;
-    &__stats
-    {
+    background-color: $white;
+    flex-grow: 1;
 
-        padding: 2rem  0 5rem 0;
-        margin:1.2rem;
-        background-color: $white;
-        flex-grow: 1;
-
-
-
-        border: 1px solid $stat-border-color;
-        ul{
-            list-style-type: none;
-        }
-        &__info{
-
-            text-align: center;
-            margin:2.7rem;
-            h3{
-                font: $third-font;
-
-
-            }
-            &:after{
-                content: "";
-                display: block;
-                margin: 0 auto;
-                width: 85%;
-                padding-top: 1.3rem;
-                border-bottom:  .1rem solid $border-color;
-            }
-
-
-        }
-        &__content{
-           padding: 2rem;
-            h2{
-
-              font: $content-header-font;
-            }
-
-
-        }
+    border: 1px solid $stat-border-color;
+    ul {
+      list-style-type: none;
     }
-    @include smartphone{
-        flex-grow: 1;
-        &__stats{
-            flex-grow: 2;
-            min-width: 26em;
-
-        }
+    &__info {
+      text-align: center;
+      margin: 2.7rem;
+      h3 {
+        font: $third-font;
+      }
+      &:after {
+        content: "";
+        display: block;
+        margin: 0 auto;
+        width: 85%;
+        padding-top: 1.3rem;
+        border-bottom: 0.1rem solid $border-color;
+      }
     }
-    @include tablet{
-        flex-direction: row;
-        &__stats{
-            flex-grow: 1;
-            min-width: 16em;
-        }
-
-
+    &__content {
+      padding: 2rem;
+      h2 {
+        font: $content-header-font;
+      }
     }
-    @include desktop{
-        flex-direction: row;
-        &__stats{
-            width: 5em;
-        }
-
+  }
+  @include smartphone {
+    flex-grow: 1;
+    &__stats {
+      flex-grow: 2;
+      min-width: 26em;
     }
-
-
-
-
+  }
+  @include tablet {
+    flex-direction: row;
+    &__stats {
+      flex-grow: 1;
+      min-width: 16em;
+    }
+  }
+  @include desktop {
+    flex-direction: row;
+    &__stats {
+      width: 5em;
+    }
+  }
 }
-

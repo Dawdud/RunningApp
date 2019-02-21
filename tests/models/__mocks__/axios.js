@@ -1,3 +1,3 @@
 export default {
-    get: () => Promise.resolve({ data: 1000  })
-  }
+  get: () => Promise.resolve({ data: 1000 })
+}

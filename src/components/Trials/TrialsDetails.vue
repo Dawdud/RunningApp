@@ -1,6 +1,6 @@
 <template>
   <div class="runningdetails">
-    <div >
+    <div>
       <app-running-trials></app-running-trials>
     </div>
 
@@ -15,7 +15,7 @@
           </tr>
         </thead>
         <tbody class="details__table__body">
-          <tr v-for="(data) in trials"  >
+          <tr v-for="(data) in trials">
             <td class="details__table__body__cell">{{data.time}}</td>
             <td class="details__table__body__cell">{{data.date}}</td>
             <td class="details__table__body__cell">{{data.distance}}</td>
@@ -27,28 +27,21 @@
   </div>
 </template>
 <script>
-
-import { mapState } from 'vuex';
-import RunningTrial from "../Trials/RunningTrials";
+import { mapState } from 'vuex'
+import RunningTrial from './RunningTrials.vue'
 
 export default {
-  data() {
-    return {
-
-              };
+  data () {
+    return {}
   },
 
-
-
-   computed: {
+  computed: {
     ...mapState(['userProfile', 'trials', 'currentUser'])
   },
 
-
   methods: {},
-   components: {
-    "app-running-trials": RunningTrial
+  components: {
+    'app-running-trials': RunningTrial
   }
-};
-
+}
 </script>

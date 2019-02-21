@@ -1,17 +1,16 @@
 <template>
   <div class="content">
-    
     <aside class="aside">
-     
       <nav class="aside__nav" role="custom-dropdown">
-        
-      <h1 class="logo--nav">Running<span class="logo__highlight">App</span></h1>
-      
-         
+        <h1 class="logo--nav">
+          Running
+          <span class="logo__highlight">App</span>
+        </h1>
+
         <span class="navbar-toggle" @click="toggleMenu= !toggleMenu">
           <i class="fas fa-bars"></i>
         </span>
-       
+
         <ul class="aside__nav__main" :class="{toggle:toggleMenu}">
           <router-link tag="li" to="/hello/dashboard">
             <span style="font-size: 1.1em; padding:.8rem">
@@ -33,11 +32,14 @@
               <i class="fas fa-chart-bar"></i>
             </span>stats
           </router-link>
-          <li><a @click="logout()"> <span style="font-size: 1.1em; padding:.8rem">
-              <i class="fas fa-sign-out-alt"></i>
-            </span> logout</a></li>
+          <li>
+            <a @click="logout()">
+              <span style="font-size: 1.1em; padding:.8rem">
+                <i class="fas fa-sign-out-alt"></i>
+              </span> logout
+            </a>
+          </li>
         </ul>
-
       </nav>
     </aside>
     <main class="main">
@@ -50,31 +52,27 @@
 
 <script>
 import firebase from 'firebase'
-import header from "./header";
+
 export default {
-  name: "hello",
-  data() {
+  name: 'hello',
+  data () {
     return {
       toggleMenu: false
-    };
+    }
   },
   methods: {
-    logout:function(){
+    logout () {
       firebase
         .auth()
         .signOut()
         .then(() => {
-          this.$router.push("login");
-        });
+          this.$router.push('login')
+        })
     }
-  },
-  components: {
-    "app-header": header
   }
 
-};
+}
 </script>
 
 <style lang="scss" >
-
 </style>
