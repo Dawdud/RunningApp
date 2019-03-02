@@ -16,49 +16,44 @@
             <div class="goal__progress" :style="progresStyle"></div>
           </div>
         </li>
-        <li>
-          
-        </li>
+        <li></li>
       </ul>
     </div>
   </div>
 </template>
 <script>
-import { mapState } from "vuex";
+import { mapState } from 'vuex'
+
 export default {
-  data: {
-    
+  data () {
+    return {}
   },
-  data() {
-    
+  data () {
     return {
-      progresStyle:{},
-     
-      goal:0,
+      progresStyle: {},
 
-    };
-
+      goal: 0
+    }
   },
   computed: {
-    ...mapState(["goals"])
+    ...mapState(['goals'])
   },
-  created(){
-    this.SumGoals();
-    
+  created () {
+    this.SumGoals()
   },
   methods: {
-     SumGoals () {
-      const goalSum = Math.ceil(this.$store.getters.sumMonth*100/this.goals[0].distance) ;
-      if(goalSum<100){
-      this.progresStyle.width= `${goalSum}%`;
+    SumGoals () {
+      const goalSum = Math.ceil(
+        (this.$store.getters.sumMonth * 100) / this.goals[0].distance
+      )
+      if (goalSum < 100) {
+        this.progresStyle.width = `${goalSum}%`
+      } else {
+        this.progresStyle.width = `${99}%`
       }
-      else{
-        this.progresStyle.width= 99 + "%";
-      }
-    
-    },
-  },
-};
+    }
+  }
+}
 </script>
 
 <style>

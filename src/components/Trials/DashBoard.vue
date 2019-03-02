@@ -21,18 +21,18 @@
         </div>
       </div>
     </div>
-    
+
     <goal-details :monthSum="monthSum"></goal-details>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import store from '../../store/store.js';
-import GoalsDetails from './GoalsDetails';
+import store from '../../store/store.js'
+import GoalsDetails from './GoalsDetails.vue'
 
 export default {
-  
+
   data () {
     return {
       monthSum: 0,
@@ -53,7 +53,6 @@ export default {
   },
 
   created () {
-    
     this.getTodayTrial()
     this.SumMonth()
   },
@@ -62,7 +61,7 @@ export default {
     GetDataUser (res) {
       const responseData = this.trials
       const users = []
-      for (let key in responseData) {
+      for (const key in responseData) {
         const user = responseData[key]
 
         users.push(user)
@@ -71,11 +70,10 @@ export default {
     },
 
     SumMonth () {
-      this.monthSum= this.$store.getters.sumMonth;
+      this.monthSum = this.$store.getters.sumMonth
     },
     getTodayTrial () {
-     
-      for (let element in this.trials) {
+      for (const element in this.trials) {
         const date = new Date(this.trials[element].date)
 
         const trialDate = new Date(
@@ -85,13 +83,12 @@ export default {
         )
         if (trialDate.getTime() === this.today.getTime()) {
           this.todaySum = this.trials[element].distance
-          
         }
       }
     }
   },
-   components: {
-    "goal-details": GoalsDetails
+  components: {
+    'goal-details': GoalsDetails
   }
 }
 </script>

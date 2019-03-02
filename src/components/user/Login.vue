@@ -37,7 +37,7 @@
 </template>
 <script>
 import firebase from 'firebase'
-import header from './header'
+import header from './header.vue'
 
 export default {
   name: 'login',

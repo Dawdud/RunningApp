@@ -48,9 +48,9 @@
   </div>
 </template>
 <script>
-import firebase from 'firebase'
+
 import { required, email } from 'vuelidate/lib/validators'
-import header from './header'
+import header from './header.vue'
 
 const fb = require('../../firebaseConfig.js')
 

@@ -69,20 +69,19 @@ export const store = new Vuex.Store({
       new Date().getFullYear(),
       new Date().getMonth(),
       new Date().getDate()
-    ),
+    )
   },
   getters: {
-    sumMonth: state => {
+    sumMonth: (state) => {
       let sum = 0
-      
-      for (let el in state.trials) {
+
+      for (const el in state.trials) {
         const date = new Date(state.trials[el].date)
         if (date.getMonth() + 1 === state.today.getMonth() + 1) {
           sum += state.trials[el].distance
         }
       }
-      return sum;
-
+      return sum
     }
   },
   actions: {

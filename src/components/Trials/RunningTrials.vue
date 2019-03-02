@@ -88,8 +88,6 @@ export default {
     closeTrialModal () {
       this.showTrialModal = false
     }
-  },
-
-
+  }
 }
 </script>

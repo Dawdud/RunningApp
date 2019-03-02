@@ -33,8 +33,9 @@
   </div>
 </template>
 <script>
-import { mapState } from 'vuex';
-import GoalsDetails from './GoalsDetails';
+import { mapState } from 'vuex'
+import GoalsDetails from './GoalsDetails'
+
 const fb = require('../../firebaseConfig.js')
 
 export default {
@@ -75,7 +76,7 @@ export default {
     }
   },
   components: {
-    "app-details": GoalsDetails
+    'app-details': GoalsDetails
   }
 }
 </script>

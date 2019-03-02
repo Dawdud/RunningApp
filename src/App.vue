@@ -12,11 +12,10 @@
 
 <script>
 import { mapState } from 'vuex'
-import Hello from './components/user/Hello'
 
 export default {
   name: 'app',
-  components: { Hello },
+
   computed: {
     ...mapState(['currentUser'])
   }

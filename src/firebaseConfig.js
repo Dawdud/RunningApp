@@ -14,7 +14,7 @@ firebase.initializeApp(config)
 
 const db = firebase.firestore()
 const auth = firebase.auth()
-const currentUser = auth.currentUser
+const { currentUser } = auth
 
 const usersCollection = db.collection('users')
 const trialsCollection = db.collection('trials')
